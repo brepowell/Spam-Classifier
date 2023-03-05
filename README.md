@@ -8,6 +8,14 @@ Assignment 3
 
 IDE: Visual Studio Code 
 
+# Files enclosed:
+spam-classifier.ipynb (run the program from this Jupyter Notebook)
+
+emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/main/Spam-detection/spam.csv)
+
+output.txt (the results of the hyperparameter search for the neural network)
+
+
 # Setup
 Follow these steps if you have not used Jupyter Notebooks in VS Code before:
 
