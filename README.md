@@ -25,17 +25,17 @@ https://code.visualstudio.com/docs/languages/python
 
 Open Anaconda Navigator 
 
-**Launch VS Code through Anaconda Navigator**
+> Launch VS Code through Anaconda Navigator
 
-**Terminal > New Terminal**
+> Terminal > New Terminal
 
 https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/
 
 1) Use the commands to create a tensorflow environment:
 
-> $ conda create -n tf tensorflow**
+> $ conda create -n tf tensorflow
 
-> $ conda activate tf**
+> $ conda activate tf
 
 https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_create-or-open-a-jupyter-notebook
 
@@ -49,11 +49,11 @@ If you don't see "tf" in the dropdown menu, try closing Anaconda Navigator and r
 
 4) Install the following:
 
-> $ conda install ipykernel**
+> $ conda install ipykernel
 
-> $ conda install pandas matplotlib scikit-learn seaborn**
+> $ conda install pandas matplotlib scikit-learn seaborn
 
-> $ conda install -c conda-forge tensorflow keras**
+> $ conda install -c conda-forge tensorflow keras
 
 </details>
 
