@@ -8,7 +8,7 @@ Assignment 3
 
 IDE: Visual Studio Code 
 
-# Files enclosed:
+# Files enclosed
 spam-classifier.ipynb (run the program from this Jupyter Notebook)
 
 emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/main/Spam-detection/spam.csv)
