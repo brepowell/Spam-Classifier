@@ -17,6 +17,8 @@ output.txt (the results of the hyperparameter search for the neural network)
 
 
 # Setup
+<details id=1>
+<summary><h2>STEPS</h2></summary>
 Follow these steps if you have not used Jupyter Notebooks in VS Code before:
 
 https://code.visualstudio.com/docs/languages/python
@@ -31,9 +33,9 @@ https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/
 
 1) Use the commands to create a tensorflow environment:
 
-**$ conda create -n tf tensorflow**
+> $ conda create -n tf tensorflow**
 
-**$ conda activate tf**
+> $ conda activate tf**
 
 https://code.visualstudio.com/docs/datascience/jupyter-notebooks#_create-or-open-a-jupyter-notebook
 
@@ -46,14 +48,17 @@ This will change the kernel over to tensorflow's kernel.
 If you don't see "tf" in the dropdown menu, try closing Anaconda Navigator and reopening it.
 
 4) Install the following:
-**$ conda install ipykernel**
 
-**$ conda install pandas matplotlib scikit-learn seaborn**
+> $ conda install ipykernel**
 
-**$ conda install -c conda-forge tensorflow keras**
+> $ conda install pandas matplotlib scikit-learn seaborn**
+
+> $ conda install -c conda-forge tensorflow keras**
+
+</details>
 
 # Sections
-The Spam-Classifier file is organized by the following
+The Spam-Classifier file is organized by the following sections:
 
 <details id=2>
 <summary><h2>DATA EXPLORATION</h2></summary>
