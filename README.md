@@ -63,13 +63,14 @@ The Spam-Classifier file is organized by the following sections:
 <details id=2>
 <summary><h2>DATA EXPLORATION</h2></summary>
   
-Check to see if there are missing values (NaN or null)
+Check for NaN or null values
+
+Remove duplicates
 
 Check for Imbalanced Data
 
-Remove any all duplicates in emails data
+Replace labels with 0 for ham and 1 for spam
 
-Check the ratio of ham to spam
 
 </details>
 
@@ -77,8 +78,6 @@ Check the ratio of ham to spam
 <summary><h2>PRE-PROCESSING TECHNIQUES</h2></summary>
 
 Fix the Data Imbalance
-
-Replace labels with 0 for ham and 1 for spam
 
 Separate the features (x) from the labels (y)
 
@@ -103,6 +102,8 @@ Plot scree plot from PCA
 ### Feature importance with PCA
 Show a bar graph of each word's importance
 
+Print out which words from PCA[0] had the most importance
+
 </details>
 
 <details id=3>
@@ -115,9 +116,11 @@ Get the shape of the data
 
 Create a Sequential Keras model
 
-Use Keras Callbacks Early Stopping
+Use Keras Callbacks - Early Stopping
 
-Optimize for precision
+Set Epochs
+
+Hyperparameter Search - Optimize for precision
 
 Compile the model
 
@@ -137,6 +140,8 @@ Show a confusion matrix
 
 <details id=3>
 <summary><h2>CLUSTERING TECHNIQUES</h2></summary>
+Hyperparameter Search - Optimize for Inertia
+
 Use DBSCAN
 
 Find the optimal value for epsilon and min_samples for 2 clusters
