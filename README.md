@@ -1,20 +1,27 @@
 ﻿# Spam-Classifier
 
-Breanna Powell and Melody Behdarvandian
+Melody Behdarvandian, Breanna Powell, and Angelo Williams
 
 CSS 576
 
-Assignment 3
+Final Project
 
 IDE: Visual Studio Code 
 
-# Files enclosed
-spam-classifier.ipynb (run the program from this Jupyter Notebook)
+# Contents
+data (folder with spam and ham data)
+
+hyper-parameter-search-results (folder with txt files from results of hyperparameter search)
+
+plots (folder with saved plots, like from Loading Vectors)
+
+saved-models (folder with saved machine learning models to use for deployment)
+
+SpammedALot (folder with Django project and YouGotSpam app for user interface)
 
 emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/main/Spam-detection/spam.csv)
 
-output.txt (the results of the hyperparameter search for the neural network)
-
+spam-classifier.ipynb (Jupyter Notebook with the model)
 
 # Setup
 <details id=1>
