@@ -22,7 +22,9 @@ The system gives you a password that you need to use to authenticate from python
 # Importing libraries
 import imaplib
 import email
-
+from email.header import decode_header
+import os
+import re
 import json
 
 # Open the json file
@@ -37,34 +39,120 @@ user, password = my_credentials["user"], my_credentials["password"]
 imap_url = 'imap.gmail.com'
 
 # Connection with GMAIL using SSL
-my_mail = imaplib.IMAP4_SSL(imap_url)
+imap = imaplib.IMAP4_SSL(imap_url)
 
 # Log in using your credentials
-my_mail.login(user, password)
+imap.login(user, password)
+
+
+# Adapted from https://stackoverflow.com/questions/61232095/reading-spam-folder-messages-with-gmail-imap
+def get_Spam_folder():
+    raw_answer = imap.list()
+    if raw_answer[0] == "OK":
+        answer_body = raw_answer[1]
+        parts = []
+        for part in answer_body:
+            part = part.decode('utf-8')
+            parts.append(part.split('"/"')[1])
+
+    # https://www.geeksforgeeks.org/python-finding-strings-with-given-substring-in-list/
+    spam = [i for i in parts if "Spam" in i]
+    # https://stackoverflow.com/questions/3939361/remove-specific-characters-from-a-string-in-python
+    spamfolder = re.sub('"', '', spam[0])
+    return spamfolder.strip()
+
+
+spam = get_Spam_folder()
+
 
 # Select the Inbox to fetch messages
-my_mail.select('Inbox')
+# imap.select('Inbox')
+# Envelope = 
 
-#Define Key and Value for email search
-#For other keys (criteria): https://gist.github.com/martinrusev/6121028#file-imap-search
-key = 'FROM'
-value = 'evelperson6@gmail.com'
-_, data = my_mail.search(None, key, value)  #Search for emails with specific key and value
+# Select the Spam to fetch messages
+status, messages = imap.select(spam, readonly=True)
 
-mail_id_list = data[0].split()  #IDs of all emails that we want to fetch 
+# total number of emails
+messages = int(messages[0])
 
-msgs = [] # empty list to capture all messages
-#Iterate through messages and extract data into the msgs list
-for num in mail_id_list:
-    typ, data = my_mail.fetch(num, '(RFC822)') #RFC822 returns whole message (BODY fetches just body)
-    msgs.append(data)
+def clean(text):
+    # clean text for creating a folder
+    return "".join(c if c.isalnum() else "_" for c in text)
 
+# Count ALL messages in folder
+# http://tech.franzone.blog/2012/11/29/counting-messages-in-imap-folders-in-python/
+resp, msgnums = imap.search(None, 'ALL')
+mycount = len(msgnums[0].split())
 
-# TODO FETCH THE SPAM FOLDER TOO
-# TODO FETCH THE HEADER INFO TOO
-# typ, data = M.fetch(num, '(BODY.PEEK[HEADER])')
-
-
+# Adapted from : https://www.thepythoncode.com/code/reading-emails-in-python
+for i in range(messages, max(messages-mycount, 1), -1):
+    # fetch the email message by ID
+    res, msg = imap.fetch(str(i), "(RFC822)")
+    for response in msg:
+        if isinstance(response, tuple):
+            # parse a bytes email into a message object
+            msg = email.message_from_bytes(response[1])
+            # decode the email subject
+            subject, encoding = decode_header(msg["Subject"])[0]
+            if isinstance(subject, bytes):
+                # if it's a bytes, decode to str
+                subject = subject.decode(encoding)
+            # decode email sender
+            From, encoding = decode_header(msg.get("From"))[0]
+            if isinstance(From, bytes):
+                From = From.decode(encoding)
+            print("Subject:", subject)
+            print("From:", From)
+            # if the email message is multipart
+            if msg.is_multipart():
+                # iterate over email parts
+                for part in msg.walk():
+                    # extract content type of email
+                    content_type = part.get_content_type()
+                    content_disposition = str(part.get("Content-Disposition"))
+                    try:
+                        # get the email body
+                        body = part.get_payload(decode=True).decode()
+                    except:
+                        pass
+                    if content_type == "text/plain" and "attachment" not in content_disposition:
+                        # print text/plain emails and skip attachments
+                        print(body)
+                    elif "attachment" in content_disposition:
+                        # download attachment
+                        filename = part.get_filename()
+                        if filename:
+                            folder_name = clean(subject)
+                            if not os.path.isdir(folder_name):
+                                # make a folder for this email (named after the subject)
+                                os.mkdir(folder_name)
+                            filepath = os.path.join(folder_name, filename)
+                            # download attachment and save it
+                            open(filepath, "wb").write(part.get_payload(decode=True))
+            else:
+                # extract content type of email
+                content_type = msg.get_content_type()
+                # get the email body
+                body = msg.get_payload(decode=True).decode()
+                if content_type == "text/plain":
+                    # print only text email parts
+                    print(body)
+            # if content_type == "text/html":
+            #     # if it's HTML, create a new HTML file and open it in browser
+            #     folder_name = clean(subject)
+            #     if not os.path.isdir(folder_name):
+            #         # make a folder for this email (named after the subject)
+            #         os.mkdir(folder_name)
+            #     filename = "index.html"
+            #     filepath = os.path.join(folder_name, filename)
+            #     # write the file
+            #     open(filepath, "w").write(body)
+            #     # open in the default browser
+            #     webbrowser.open(filepath)
+            print("="*100)
+# close the connection and logout
+imap.close()
+imap.logout()
 
 
 #Now we have all messages, but with a lot of details
@@ -77,16 +165,17 @@ for num in mail_id_list:
 
 # NOTE that a Message object consists of headers and payloads.
 
-for msg in msgs[::-1]:
-    for response_part in msg:
-        if type(response_part) is tuple:
-            my_msg=email.message_from_bytes((response_part[1]))
-            print("_________________________________________")
-            print ("subj:", my_msg['subject'])
-            print ("from:", my_msg['from'])
-            print ("body:")
-            for part in my_msg.walk():  
-                #print(part.get_content_type())
-                if part.get_content_type() == 'text/plain':
-                    print (part.get_payload())
+def printMessages():
+    for msg in msgs[::-1]:
+        for response_part in msg:
+            if type(response_part) is tuple:
+                my_msg=email.message_from_bytes((response_part[1]))
+                print("_________________________________________")
+                print ("subj:", my_msg['subject'])
+                print ("from:", my_msg['from'])
+                print ("body:")
+                for part in my_msg.walk():  
+                    #print(part.get_content_type())
+                    if part.get_content_type() == 'text/plain':
+                        print (part.get_payload())
             
