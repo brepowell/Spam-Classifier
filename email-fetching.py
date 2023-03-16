@@ -33,6 +33,9 @@ def loginToGmail():
     # json implementation https://www.geeksforgeeks.org/read-json-file-using-python/
     f = open('credentials.json')
     my_credentials = json.load(f)
+
+    # TODO: FETCH THE CREDENTIALS FROM THE DATABASE
+
     
     #Load the user name and passwd
     user, password = my_credentials["user"], my_credentials["password"]
@@ -68,7 +71,8 @@ def clean(text):
     return "".join(c if c.isalnum() else "_" for c in text)
 
 
-# TODO: SAVE TO A TXT FILE INSTEAD OF PRINTING?
+
+# TODO: SAVE TO A TXT FILE
 
 def fetchAllinFolder(imap, folder):
 
@@ -155,8 +159,10 @@ imap = loginToGmail()
 spam = getSpamFolder()
 fetchAllinFolder(imap, spam)
 
-
 # TODO: FETCH FROM INBOX TOO
+
+# TODO: SAVE AS TXT FILES FOR UPLOAD TO THE DATABASE - SAVE ATTRIBUTES TOO
+
 
 # Select the Inbox to fetch messages
 # imap.select('Inbox')

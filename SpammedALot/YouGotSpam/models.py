@@ -1,7 +1,8 @@
 from django.db import models
 
 # USERS
-# https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone 
+# https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone - PROFILE EXAMPLE
+# https://docs.djangoproject.com/en/4.1/ref/contrib/auth/ - DJANGO'S DEFAULT USER
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -16,13 +17,21 @@ class Profile(models.Model):
 
 class Email(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    header = models.CharField(max_length=200)
-    body = models.TextField()
+    subject = models.CharField(max_length=80) # gmail's max length is 70, but set to 80 just in case
+    fullText = models.FileField() # includes the header details of the email and body of email - raw txt file
     isSpam = models.BooleanField(default = False)
+    dateReceived = models.DateTimeField()
 
     def __str__(self) -> str:
         return "Header:\n" + self.header
-    
+
+@receiver(post_save, sender=Email)
+def flag_email(sender, instance, created, **kwargs):
+    if created:
+        Email.objects.update() # TODO: FINISH THIS!
+
+
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

@@ -23,7 +23,18 @@ emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/m
 
 spam-classifier.ipynb (Jupyter Notebook with the model)
 
-# Setup & Libraries Needed
+# Application
+Our app follows this pattern:
+
+> Fetch all emails from an inbox and junk folder
+> Save all as txt files
+> Upload the emails to the database
+> Preprocess the emails
+> Feed the emails to the spam-classifier
+> Flag emails as spam
+> Notify user of all spam emails
+
+# Code Setup & Libraries Needed
 <details id=1>
 <summary><h2>STEPS</h2></summary>
 Follow these steps if you have not used Jupyter Notebooks in VS Code before:
