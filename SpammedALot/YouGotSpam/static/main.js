@@ -4,6 +4,10 @@ let userInfo = {
 };
 let go = document.querySelector('#spam-button');
 let results = document.querySelector('#lower-wrapper');
+let u_email_line = document.querySelector('#u-email-line');
+let u_password_line = document.querySelector('#u-password-line');
+let rec_email = '';
+let rec_password = '';
 
 
 go.addEventListener('click', () => {
@@ -30,7 +34,7 @@ function sendRequest(data) {
     xhr.open('POST', '/user-data/', true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("X-CSRFToken", document.getElementsByName("csrfmiddlewaretoken")[0].value);
-    console.log("data: ", JSON.stringify(data))
+
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // handle response from Django Views modules
@@ -38,4 +42,20 @@ function sendRequest(data) {
         }
     };
     xhr.send(JSON.stringify(data))
+
+    console.log("data: ", JSON.stringify(data))
+    getResponse();
+}
+
+function getResponse() {
+    fetch('user-data/')
+    .then(response => response.json())
+    .then(data => {
+        console.log('What Python sent: ', data)
+        rec_email = data.email[0];
+        rec_password = data.password;
+        u_email_line.innerText += String(' ' + rec_email);
+        u_password_line.innerText += String(' ') + rec_password;
+    } )
+    .catch(error => console.error(error));
 }
