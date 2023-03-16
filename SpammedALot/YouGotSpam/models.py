@@ -16,7 +16,7 @@ class Profile(models.Model):
     emails = models.ManyToManyField('Email', blank=True) #One profile has many Email objects
 
 class Email(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=80) # gmail's max length is 70, but set to 80 just in case
     fullText = models.FileField() # includes the header details of the email and body of email - raw txt file
     isSpam = models.BooleanField(default = False)

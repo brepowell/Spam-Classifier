@@ -27,3 +27,6 @@ def user_data(request):
         return JsonResponse(user_info)
     else:
         return JsonResponse({'error': 'Invalid request'})
+
+def add_email(request):
+    return render(request, 'add-email.html', {})

@@ -3,7 +3,7 @@ let userInfo = {
     password: ''
 };
 let go = document.querySelector('#spam-button');
-let results = document.querySelector('#lower-wrapper');
+let results = document.querySelector('#results');
 let u_email_line = document.querySelector('#u-email-line');
 let u_password_line = document.querySelector('#u-password-line');
 let rec_email = '';

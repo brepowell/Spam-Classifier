@@ -5,10 +5,10 @@ from django.contrib import admin
 from .models import Email
 from .models import Profile
 
-@admin.register(Email)
-class emailAdmin(admin.ModelAdmin):
-    list_display = ['owner', 'header', 'body', 'isSpam']
+# @admin.register(Email)
+# class emailAdmin(admin.ModelAdmin):
+#     list_display = ['owner', 'header', 'body', 'isSpam']
 
-@admin.register(Profile)
-class profileAdmin(admin.ModelAdmin):
-    list_display = ['name']
+# @admin.register(Profile)
+# class profileAdmin(admin.ModelAdmin):
+#     list_display = ['name']
