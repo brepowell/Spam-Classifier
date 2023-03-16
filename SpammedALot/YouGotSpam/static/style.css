@@ -6,6 +6,11 @@ html {
 
 body {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -16,11 +21,15 @@ p {
     color: #fff;
 }
 
-.body-wrapper {
+#upper-wrapper {
     background-color: #4B2E83;
     padding: 2rem;
     width: 50%;
     margin: 0 auto;
+}
+
+#lower-wrapper {
+
 }
  
 .login-wrapper {
@@ -58,4 +67,8 @@ p {
     text-transform: uppercase;
     font-weight: 800;
     font-size: 16px;
+}
+
+.hide_ {
+    display: none;
 }

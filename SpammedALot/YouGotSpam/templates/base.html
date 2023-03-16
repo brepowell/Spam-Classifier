@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="body-wrapper">
+    <div id="upper-wrapper">
         <h1>You Got Spam!</h1>
         <p>Log in to your email address to fetch the amount of spam email</p>
         <div class="login-wrapper">
@@ -20,11 +21,15 @@
                 </div>  
                 <div class="user-input">
                     <label for="password_">Password</label>
-                    <input type="text" id="password_" name="email_" placeholder="********">
+                    <input type="password" id="password_" name="email_" placeholder="********">
                 </div>
                 <button id="spam-button">Go!</button>
             </div>
         </div>
+    </div>
+    <div id="lower-wrapper" class="hide_">
+        {% block content %}
+        {% endblock %}
     </div>
     <script src="{% static 'main.js' %}"></script>
 </body>
