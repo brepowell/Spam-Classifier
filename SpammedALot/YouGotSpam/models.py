@@ -13,7 +13,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=20)
     emailCount = models.IntegerField(default=0)
     spamCount = models.IntegerField(default=0)
-    emails = models.ManyToManyField('Email', blank=True)
+    emails = models.ManyToManyField('Email', blank=True) #One profile has many Email objects
 
 class Email(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

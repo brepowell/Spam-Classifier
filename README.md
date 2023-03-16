@@ -24,14 +24,20 @@ emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/m
 spam-classifier.ipynb (Jupyter Notebook with the model)
 
 # Application
-Our app follows this pattern:
+Our YouGotSpam app follows this pattern:
 
 > Fetch all emails from an inbox and junk folder
+
 > Save all as txt files
+
 > Upload the emails to the database
+
 > Preprocess the emails
+
 > Feed the emails to the spam-classifier
+
 > Flag emails as spam
+
 > Notify user of all spam emails
 
 # Code Setup & Libraries Needed

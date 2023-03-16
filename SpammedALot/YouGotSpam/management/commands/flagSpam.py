@@ -1,9 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
-
 from YouGotSpam.models import Email
 
-class Command(BaseCommand):
-    help = 'Flags an email as spam or ham'
+class flagSpam(BaseCommand):
+    help = 'Flags an email as spam'
 
     def add_arguments(self, parser):
         parser.add_argument('email_id', nargs='+', type=int)
@@ -18,8 +17,7 @@ class Command(BaseCommand):
                 raise CommandError('Email "%s" does not exist' % email_id)
             email.isSpam = True
             email.save()
-
-        self.stdout.write(self.style.SUCCESS('Successfully flagged email'))
+            self.stdout.write(self.style.SUCCESS('Successfully flagged email as spam'))
 
 
 # https://docs.djangoproject.com/en/4.1/howto/custom-management-commands/
