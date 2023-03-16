@@ -23,7 +23,7 @@ emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/m
 
 spam-classifier.ipynb (Jupyter Notebook with the model)
 
-# Setup
+# Setup & Libraries Needed
 <details id=1>
 <summary><h2>STEPS</h2></summary>
 Follow these steps if you have not used Jupyter Notebooks in VS Code before:
@@ -54,13 +54,14 @@ This will change the kernel over to tensorflow's kernel.
 
 If you don't see "tf" in the dropdown menu, try closing Anaconda Navigator and reopening it.
 
-4) Install the following:
+4) Install the following for the project_File.ipynb:
 
 > $ conda install ipykernel
 
 > $ conda install pandas matplotlib scikit-learn seaborn
 
 > $ conda install -c conda-forge tensorflow keras
+
 
 </details>
 
