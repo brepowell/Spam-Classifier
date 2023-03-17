@@ -11,7 +11,14 @@
 </head>
 <body>
     <div id="upper-wrapper">
-        <h1>You Got Spam!</h1>
+        <div class="top-section">
+            <h2>You Got Spam!</h2>
+            <a id="profile" href="{% url 'add_email' %}">
+                <img id="profile-icon" src="{% static 'images/user-profile.png' %}" alt="Profile icon">
+                <p>Go to Profile</p>
+            </a> 
+        </div>
+        <hr>
         <p>Log in to your email address to fetch the amount of spam email</p>
         <div class="login-wrapper">
             <div>
