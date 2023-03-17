@@ -1,4 +1,4 @@
-# Modified from https://github.com/bnsreenu/python_for_microscopists/blob/master/AMT_02_extract_gmails_from_a_user/AMT_02_extract_gmails_from_a_user.py
+# Modified from https://github.com/bnsreenu/python_for_microscopists/blob/master/AMT_02_extract_gmails_senders[i]a_user/AMT_02_extract_gmails_senders[i]a_user.py
 # by Dr. Sreenivas Bhattiprolu
 # https://youtu.be/K21BSZPFIjQ
 
@@ -17,6 +17,10 @@ Scroll down to App Passwords under 2 step verification.
 Select Mail under Select App. and Other under Select Device. (Give a name, e.g., python)
 The system gives you a password that you need to use to authenticate from python.
 
+3. If you are running this program as $ python email_fetching.py from the terminal window
+then make sure to create a credentials.json file and add it to gitignore so that 
+your sensitive information will not go to the repository.
+
 """
 
 # Importing libraries
@@ -31,6 +35,7 @@ import sys
 from email_parser import send_email_features_to_csv
 from email.parser import BytesParser
 from email.policy import default
+# from SpammedALot import models
 
 def loginToGmail():
     # Open the json file
@@ -70,10 +75,18 @@ def getSpamFolder():
     spamfolder = re.sub('"', '', spam[0])
     return spamfolder.strip()
 
-def saveEmailAsTextFile(number):
-
-
-    print("saved")
+def saveEmailAsTextFile(msg, i):
+    # Save to a folder as a txt file
+    directory = "emailsToFlag"
+    workingDirectory = os.getcwd() #get current working directory
+    path = os.path.join(workingDirectory, directory) 
+    fileName = "email" + str(i-1)
+    completeName = os.path.join(path, fileName+".txt") 
+    text = msg.as_string(unixfrom=False, maxheaderlen=None, policy=None)
+  
+    with open(completeName, 'w') as f:
+        f.write(text)
+        f.close()
 
 def fetchAllinFolder(imap, folder):
 
@@ -87,6 +100,9 @@ def fetchAllinFolder(imap, folder):
     # http://tech.franzone.blog/2012/11/29/counting-messages-in-imap-folders-in-python/
     resp, msgnums = imap.search(None, 'ALL')
     countOfEmails = len(msgnums[0].split())
+    subjects = []
+    senders = []
+    dates = []
 
     # Adapted from : https://www.thepythoncode.com/code/reading-emails-in-python
     for i in range(messages, max(messages-countOfEmails, 1), -1):
@@ -99,45 +115,58 @@ def fetchAllinFolder(imap, folder):
 
                 # parse a bytes email into a message object
                 msg = email.message_from_bytes(response[1])
-                # decode the email subject
+                
+                
                 subject_, encoding = decode_header(msg["Subject"])[0]
-                if isinstance(subject_, bytes):
-                    # if it's a bytes, decode to str
+                if isinstance(subject_, bytes) and isinstance(encoding, str):
                     subject_ = subject_.decode(encoding)
-                # decode email sender
+
                 from_, encoding = decode_header(msg.get("From"))[0]
-                if isinstance(from_, bytes):
+                if isinstance(from_, bytes) and isinstance(encoding, str):
                     from_ = from_.decode(encoding)
+
                 date_, encoding = decode_header(msg.get("Date"))[0]
-                if isinstance(date_, bytes):
+                if isinstance(date_, bytes) and isinstance(encoding, str):
                     date_ = date_.decode(encoding)
 
-                # Save to a folder as a txt file
-                directory = "emailsToFlag"
-                workingDirectory = os.getcwd() #get current working directory
-                path = os.path.join(workingDirectory, directory) 
-                fileName = "email" + str(i-1)
-                completeName = os.path.join(path, fileName+".txt") 
-                text = msg.as_string(unixfrom=False, maxheaderlen=None, policy=None)
-  
-                with open(completeName, 'w') as f:
-                    f.write(text)
-                    f.close()
-                
-    return countOfEmails, date_, from_, subject_
+                saveEmailAsTextFile(msg, i)
+                dates.append(date_)
+                senders.append(from_)
+                subjects.append(subject_)
 
+    return countOfEmails-1, dates, senders, subjects
 
+def parseEmails():
+    folder = "emailsToFlag"
+    send_email_features_to_csv(folder)
+
+def classify():
+    # TODO: CLASSIFY THE MESSAGE AS SPAM OR HAM
+    print("classification magic")
+
+def saveToDatabase(countOfEmails, dates, senders, subjects, classification):
+    
+
+    # TODO: SAVE WHETHER THE MESSAGE WAS SPAM OR HAM TO THE DATABASE
+    # TODO: SAVE JUST THE SUBJECT LINE FOR THE DATABASE; DATE
+    print("database magic")
 
 imap = loginToGmail()
 spam = getSpamFolder()
-countOfEmails, date_, from_, subject_ = fetchAllinFolder(imap, spam)
+countOfEmails, dates, senders, subjects = fetchAllinFolder(imap, spam)
 
+# TODO: DO NOT OVERWRITE THE SPAM EMAILS - FIX THE NAMING CONVENTION
+countOfEmails, dates, senders, subject_ = fetchAllinFolder(imap, "INBOX")
+parseEmails()
+classification = classify()
+saveToDatabase(countOfEmails, dates, senders, subjects, classification)
 
-# TODO: FETCH FROM INBOX TOO
-# countOfEmails, date_, from_, subject_ = fetchAllinFolder(imap, "INBOX")
-# TODO: SAVE JUST THE SUBJECT LINE FOR THE DATABASE; DATE
-# TODO: PARSE, CLASSIFY THE MESSAGE AS SPAM OR HAM
-# TODO: SAVE WHETHER THE MESSAGE WAS SPAM OR HAM TO THE DATABASE
+# print(dates)
+# print(senders)
+# print(subjects)
+# print(countOfEmails)
+# print(len(dates))
+
 
 # close the connection and logout
 imap.close()
