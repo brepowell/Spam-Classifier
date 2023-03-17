@@ -13,7 +13,7 @@ data (folder with spam and ham data)
 
 hyper-parameter-search-results (folder with txt files from results of hyperparameter search)
 
-plots (folder with saved plots, like from Loading Vectors)
+visuals (folder with saved plots, like from Loading Vectors, and images, such as screenshots)
 
 saved-models (folder with saved machine learning models to use for deployment)
 
@@ -82,7 +82,7 @@ If you don't see "tf" in the dropdown menu, try closing Anaconda Navigator and r
 
 </details>
 
-# Sections
+# Machine Learning Model Process
 The Spam-Classifier file is organized by the following sections:
 
 <details id=2>
@@ -133,6 +133,7 @@ Print out which words from PCA[0] had the most importance
 
 <details id=3>
 <summary><h2>MODEL BUILDING</h2></summary>
+
 ### Split into Train and Test
 Split into training and testing data 80% training, 20% testing
 

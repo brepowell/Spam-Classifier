@@ -14,6 +14,7 @@ class Profile(models.Model):
     emailCount = models.IntegerField(default=0)
     spamCount = models.IntegerField(default=0)
     emails = models.ManyToManyField('Email', blank=True) #One profile has many Email objects
+    is_active = models.BooleanField()
 
 class Email(models.Model):
     # owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -21,15 +22,15 @@ class Email(models.Model):
     fullText = models.FileField() # includes the header details of the email and body of email - raw txt file
     isSpam = models.BooleanField(default = False)
     dateReceived = models.DateTimeField()
+    is_active = models.BooleanField()
 
     def __str__(self) -> str:
-        return "Header:\n" + self.header
+        return "Header:\n" + self.header + "\nDate:"  # TODO: CHECK WITH TEAM ABOUT WHAT TO RETURN
 
 @receiver(post_save, sender=Email)
 def flag_email(sender, instance, created, **kwargs):
     if created:
         Email.objects.update() # TODO: FINISH THIS!
-
 
 
 @receiver(post_save, sender=User)
@@ -40,3 +41,4 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+

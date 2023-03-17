@@ -16,7 +16,9 @@ class saveEmail(BaseCommand):
             except Email.DoesNotExist:
                 raise CommandError('Email "%s" does not exist' % email_id)
             
-            #https://docs.djangoproject.com/en/4.1/ref/files/file/#the-contentfile-class
+
+            # 
+            # https://docs.djangoproject.com/en/4.1/ref/files/file/#the-contentfile-class
             content_file = ContentFile(b'Hello world!', name='hello-world.txt')
             instance = email(file_field=content_file)
             instance.save()
