@@ -13,15 +13,23 @@
     <div id="upper-wrapper">
         <div class="top-section">
             <h2>You Got Spam!</h2>
-            <a id="profile" href="{% url 'add_email' %}">
+            <span id="profile">
                 <img id="profile-icon" src="{% static 'images/user-profile.png' %}" alt="Profile icon">
                 <p>Go to Profile</p>
-            </a> 
+            </span> 
         </div>
         <hr>
         <p>Log in to your email address to fetch the amount of spam email</p>
         <div class="login-wrapper">
             <div>
+                <div class="user-input">
+                    <label for="user_">User</label>
+                    <input type="text" id="user_" name="user_" placeholder="myusername">
+                </div>  
+                <div class="user-input">
+                    <label for="name_">Name</label>
+                    <input type="text" id="name_" name="name_" placeholder="myname">
+                </div>
                 <div class="user-input">
                     <label for="email_">Email Address</label>
                     <input type="email" id="email_" name="email_" placeholder="youraddress@email.com">

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <h1 style="color:black">Results works!!</h1>
-<p id="u-email-line" style="color:black">User email is stored in Python, it is {{ u_email }}</p>
-<p id="u-password-line" style="color:black">User password is also stored in Python, it is {{ u_password }}</p>
+<p id="u-user-line" style="text-align:left;color:black">User is<span id="u_val"></span></p>
+<p id="u-name-line" style="text-align:left;color:black">User name is<span id="n_val"></span></p>
+<p id="u-email-line" style="text-align:left;color:black">User email is<span id="e_val"></span></p>
+<p id="u-password-line" style="text-align:left;color:black">User password<span id="p_val"></span></p>
 {% endblock %}
