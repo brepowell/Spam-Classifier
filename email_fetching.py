@@ -36,6 +36,9 @@ from email_parser import send_email_features_to_csv
 from email.parser import BytesParser
 from email.policy import default
 # from SpammedALot import models
+import time
+
+
 
 def loginToGmail():
     # Open the json file
@@ -88,7 +91,7 @@ def saveEmailAsTextFile(msg, i):
         f.write(text)
         f.close()
 
-def fetchAllinFolder(imap, folder):
+def fetchAllinFolder(imap, folder, countOfEmails):
 
     # Select the Spam to fetch messages
     status, messages = imap.select(folder, readonly=True)
@@ -99,13 +102,14 @@ def fetchAllinFolder(imap, folder):
     # Count ALL messages in folder
     # http://tech.franzone.blog/2012/11/29/counting-messages-in-imap-folders-in-python/
     resp, msgnums = imap.search(None, 'ALL')
-    countOfEmails = len(msgnums[0].split())
+    countOfEmailsInFolder = len(msgnums[0].split())
+
     subjects = []
     senders = []
     dates = []
 
     # Adapted from : https://www.thepythoncode.com/code/reading-emails-in-python
-    for i in range(messages, max(messages-countOfEmails, 1), -1):
+    for i in range(messages, max(messages-countOfEmailsInFolder, 1), -1):
         # fetch the email message by ID
         res, msg = imap.fetch(str(i), "(RFC822)")
 
@@ -129,12 +133,14 @@ def fetchAllinFolder(imap, folder):
                 if isinstance(date_, bytes) and isinstance(encoding, str):
                     date_ = date_.decode(encoding)
 
-                saveEmailAsTextFile(msg, i)
+                # Adding the count of emails ensures no overwriting when called again
+                saveEmailAsTextFile(msg, countOfEmails+i) 
                 dates.append(date_)
                 senders.append(from_)
                 subjects.append(subject_)
 
-    return countOfEmails-1, dates, senders, subjects
+    countOfEmails += countOfEmailsInFolder-1
+    return countOfEmails
 
 def parseEmails():
     folder = "emailsToFlag"
@@ -143,31 +149,43 @@ def parseEmails():
 def classify():
     # TODO: CLASSIFY THE MESSAGE AS SPAM OR HAM
     print("classification magic")
+    #return dates, senders, subjects, classifications
 
-def saveToDatabase(countOfEmails, dates, senders, subjects, classification):
-    
-
+#def saveToDatabase(secondCount, dates, senders, subjects, classifications):
+def saveToDatabase(secondCount):
     # TODO: SAVE WHETHER THE MESSAGE WAS SPAM OR HAM TO THE DATABASE
     # TODO: SAVE JUST THE SUBJECT LINE FOR THE DATABASE; DATE
     print("database magic")
 
+
+tic = time.perf_counter()
+
+countOfEmails = 0
 imap = loginToGmail()
 spam = getSpamFolder()
-countOfEmails, dates, senders, subjects = fetchAllinFolder(imap, spam)
+firstCount = fetchAllinFolder(imap, spam, countOfEmails)
 
 # TODO: DO NOT OVERWRITE THE SPAM EMAILS - FIX THE NAMING CONVENTION
-countOfEmails, dates, senders, subject_ = fetchAllinFolder(imap, "INBOX")
+secondCount = fetchAllinFolder(imap, "INBOX", firstCount)
 parseEmails()
-classification = classify()
-saveToDatabase(countOfEmails, dates, senders, subjects, classification)
 
+# TODO: GRAB THE CSV
+#dates, senders, subjects, classifications = 
+classify()
+#saveToDatabase(secondCount, dates, senders, subjects, classifications)
+saveToDatabase(secondCount)
+               
 # print(dates)
 # print(senders)
 # print(subjects)
-# print(countOfEmails)
 # print(len(dates))
-
 
 # close the connection and logout
 imap.close()
 imap.logout()
+
+toc = time.perf_counter()
+totalTime = toc-tic
+
+print(f"Fetched all emails from Spam and Inbox folders in {totalTime:0.4f} seconds or {totalTime/60:0.4f} minutes")
+print(secondCount)
