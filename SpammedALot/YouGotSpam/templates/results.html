@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 style="color:black">Results works!!</h1>
-<p id="u-user-line" style="text-align:left;color:black">User is<span id="u_val"></span></p>
-<p id="u-name-line" style="text-align:left;color:black">User name is<span id="n_val"></span></p>
-<p id="u-email-line" style="text-align:left;color:black">User email is<span id="e_val"></span></p>
-<p id="u-password-line" style="text-align:left;color:black">User password<span id="p_val"></span></p>
+<div id="return-data">
+    <div style="border-right: 1px solid #ccc;padding:1rem 1rem 1rem 0">
+        <h2 style="color: rgb(77, 156, 76)">Ham Count:</h2><hr>
+        <!-- <p style="text-align:left;color:black">User is<span id="u_val"></span></p>
+        <p style="text-align:left;color:black">User name is<span id="n_val"></span></p> -->
+        <h1><span id="ham_val"></span></h1>
+    </div>
+    <div style="padding:1rem 0 1rem 1rem">
+        <h2 style="color: rgb(170, 74, 74)">Spam Count: </h2><hr>
+        <!-- <p style="text-align:left;color:black">User email is<span id="e_val"></span></p>
+        <p style="text-align:left;color:black">User password<span id="p_val"></span></p> -->
+        <h1><span id="spam_val"></span></h1>
+    </div>
+</div>
 {% endblock %}

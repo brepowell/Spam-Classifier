@@ -72,15 +72,22 @@ function getResponse() {
 
         console.log(data)
 
-        // doing something with the data received from Python
-        let uVal = document.querySelector('#u_val');
-        let nVal = document.querySelector('#n_val');
-        let eVal = document.querySelector('#e_val');
-        let pVal = document.querySelector('#p_val');
-        uVal.innerText = String(' ' + rec_user);
-        nVal.innerText = String(' ' + rec_name);
-        eVal.innerText = String(' ' + rec_email);
-        pVal.innerText = String(' ' + rec_password);
+        // displaying information the user sent
+        // let uVal = document.querySelector('#u_val');
+        // let nVal = document.querySelector('#n_val');
+        // let eVal = document.querySelector('#e_val');
+        // let pVal = document.querySelector('#p_val');
+        // uVal.innerText = String(' ' + rec_user);
+        // nVal.innerText = String(' ' + rec_name);
+        // eVal.innerText = String(' ' + rec_email);
+        // pVal.innerText = String(' ' + rec_password);
+
+        // displaying ham/spam count
+        let hamVal = document.querySelector('#ham_val');
+        let spamVal = document.querySelector('#spam_val');
+        hamVal.innerText = '1427';
+        spamVal.innerText = '299';
+
     } )
     .catch(error => console.error(error));
 }
