@@ -11,10 +11,21 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
 }
 
-h1 {
+h2 {
     color: #B7A57A;
+    margin: 0;
+}
+
+hr {
+    border: 1px solid #6747a5;
+    margin: 2rem 0;
 }
 
 p {
@@ -24,12 +35,59 @@ p {
 #upper-wrapper {
     background-color: #4B2E83;
     padding: 2rem;
-    width: 50%;
-    margin: 0 auto;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #lower-wrapper {
+}
 
+#directions {
+    border: 1px solid #f1f1f1;
+    background-color: #f8f8f8;
+    padding: 2rem;
+    text-align: left;
+}
+
+#directions p {
+    color: #000;
+}
+
+#directions img {
+    width: 100%;
+    border: 1px solid #d6d6d6;
+}
+
+#back {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#profile-icon {
+    width:15px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#gmail-imap {
+    margin: 1rem 0;
+    color: #0000EE;
+    cursor: pointer;
+    font-size: 16px;
 }
  
 .login-wrapper {
@@ -37,6 +95,7 @@ p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .user-input {

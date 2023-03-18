@@ -1,0 +1,50 @@
+{% load static %}
+{% csrf_token %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="https://use.typekit.net/okx8wwi.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="upper-wrapper">
+        <div class="top-section">
+            <a id="back" href="{% url 'home' %}">
+                <p>&#9664;&nbsp;Go Back</p>
+            </a> 
+            <h2>Add Email</h2>
+        </div>
+        <p>Add another email to your Account</p>
+        <div class="login-wrapper">
+            <div>
+                <div class="user-input">
+                    <label for="user_">Username</label>
+                    <input type="text" id="user_" name="user_" placeholder="myusername">
+                </div>  
+                <div class="user-input">
+                    <label for="name_">Name</label>
+                    <input type="text" id="name_" name="name_" placeholder="myhandle">
+                </div>  
+                <div class="user-input">
+                    <label for="email_">New Email</label>
+                    <input type="email" id="email_" name="email_" placeholder="youraddress@email.com">
+                </div>  
+                <div class="user-input">
+                    <label for="password_">New Password</label>
+                    <input type="password" id="password_" name="email_" placeholder="********">
+                </div>
+                <button id="spam-button-full">Go!</button>
+            </div>
+        </div>
+    </div>
+        <div id="results" class="hide_">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>

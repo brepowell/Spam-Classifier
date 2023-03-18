@@ -1,37 +1,43 @@
 let userInfo = {
+    user: '',
+    name: '',
     email: '',
     password: ''
 };
+
 let go = document.querySelector('#spam-button');
-let results = document.querySelector('#lower-wrapper');
-let u_email_line = document.querySelector('#u-email-line');
-let u_password_line = document.querySelector('#u-password-line');
-let rec_email = '';
-let rec_password = '';
+let getFull = document.querySelector('#spam-button-full')
+let results = document.querySelector('#results');
+let directions = document.querySelector('#gmail-imap');
 
 
 go.addEventListener('click', () => {
     getUserData();
 });
 
+// Sync with template to get user input
 function getUserData() {
+    userInfo.user = document.querySelector('input#user_').value;
+    userInfo.name = document.querySelector('input#name_').value;
     userInfo.email = document.querySelector('input#email_').value;
     userInfo.password = document.querySelector('input#password_').value;
-    document.querySelector('input#email_').value = "";
-    document.querySelector('input#password_').value = "";
 
-
-    console.log('email: ', userInfo.email);
-    console.log('password: ', userInfo.password);
+    // clear after storage
+    document.querySelector('input#user_').value = '';
+    document.querySelector('input#name_').value = '';
+    document.querySelector('input#email_').value = '';
+    document.querySelector('input#password_').value = '';
 
     results.classList.remove('hide_');
+    directions.classList.add('hide_');
     sendRequest(userInfo);
 }
 
+// Give data to Python View
 function sendRequest(data) {
     // send a POST request to the user-data endpoint
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/user-data/', true);
+    xhr.open('POST', '/user-data/', true);    
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("X-CSRFToken", document.getElementsByName("csrfmiddlewaretoken")[0].value);
 
@@ -41,21 +47,40 @@ function sendRequest(data) {
             console.log('xhr.responseText: ', xhr.responseText);
         }
     };
-    xhr.send(JSON.stringify(data))
 
-    console.log("data: ", JSON.stringify(data))
+    console.log("sending data to View: ", JSON.stringify(data))
+    xhr.send(JSON.stringify(data))
+    // after sending user input, get what View processed
     getResponse();
 }
 
+// Get processed data from Python View
 function getResponse() {
-    fetch('user-data/')
+    fetch('user-data')
     .then(response => response.json())
     .then(data => {
         console.log('What Python sent: ', data)
-        rec_email = data.email[0];
+        let rec_user = '';
+        let rec_name = '';
+        let rec_email = '';
+        let rec_password = '';
+
+        rec_user = data.user;
+        rec_name = data.name;
+        rec_email = data.email;
         rec_password = data.password;
-        u_email_line.innerText += String(' ' + rec_email);
-        u_password_line.innerText += String(' ') + rec_password;
+
+        console.log(data)
+
+        // doing something with the data received from Python
+        let uVal = document.querySelector('#u_val');
+        let nVal = document.querySelector('#n_val');
+        let eVal = document.querySelector('#e_val');
+        let pVal = document.querySelector('#p_val');
+        uVal.innerText = String(' ' + rec_user);
+        nVal.innerText = String(' ' + rec_name);
+        eVal.innerText = String(' ' + rec_email);
+        pVal.innerText = String(' ' + rec_password);
     } )
     .catch(error => console.error(error));
 }
