@@ -151,8 +151,8 @@ def classify():
     print("classification magic")
     #return dates, senders, subjects, classifications
 
-#def saveToDatabase(secondCount, dates, senders, subjects, classifications):
-def saveToDatabase(secondCount):
+#def saveToDatabase(secondCountOfEmails, dates, senders, subjects, classifications):
+def saveToDatabase(secondCountOfEmails):
     # TODO: SAVE WHETHER THE MESSAGE WAS SPAM OR HAM TO THE DATABASE
     # TODO: SAVE JUST THE SUBJECT LINE FOR THE DATABASE; DATE
     print("database magic")
@@ -163,17 +163,17 @@ tic = time.perf_counter()
 countOfEmails = 0
 imap = loginToGmail()
 spam = getSpamFolder()
-firstCount = fetchAllinFolder(imap, spam, countOfEmails)
+firstCountOfEmails = fetchAllinFolder(imap, spam, countOfEmails)
 
 # TODO: DO NOT OVERWRITE THE SPAM EMAILS - FIX THE NAMING CONVENTION
-secondCount = fetchAllinFolder(imap, "INBOX", firstCount)
+secondCountOfEmails = fetchAllinFolder(imap, "INBOX", firstCountOfEmails)
 parseEmails()
 
 # TODO: GRAB THE CSV
 #dates, senders, subjects, classifications = 
 classify()
-#saveToDatabase(secondCount, dates, senders, subjects, classifications)
-saveToDatabase(secondCount)
+#saveToDatabase(secondCountOfEmails, dates, senders, subjects, classifications)
+saveToDatabase(secondCountOfEmails)
                
 # print(dates)
 # print(senders)
@@ -188,4 +188,4 @@ toc = time.perf_counter()
 totalTime = toc-tic
 
 print(f"Fetched all emails from Spam and Inbox folders in {totalTime:0.4f} seconds or {totalTime/60:0.4f} minutes")
-print(secondCount)
+print(secondCountOfEmails)

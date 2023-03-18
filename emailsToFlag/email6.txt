@@ -1,0 +1,1427 @@
+Delivered-To: evelperson6+partyheritage@gmail.com
+Received: by 2002:adf:dd51:0:0:0:0:0 with SMTP id u17csp2898422wrm;
+        Thu, 16 Mar 2023 03:33:35 -0700 (PDT)
+X-Google-Smtp-Source: 
+ AK7set/jc7wsNuR2nugBmFV7K9T7PDKaKOPTigO1fm0SOGkSGgKXhABf3hmCCPAMsGHtRUjNB0ql
+X-Received: by 2002:ac8:5815:0:b0:3b9:fb0e:adba with SMTP id
+ g21-20020ac85815000000b003b9fb0eadbamr4982261qtg.25.1678962815693;
+        Thu, 16 Mar 2023 03:33:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1678962815; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xJL2alJVnP5UJqYJ/rUB6Fh7u7NKIOf07CWQxierxVdWLFKdQLa+vT5dEt0uDENLL1
+         Pg1i3iGdOsiD8cRx/WdKI/bSpiWkC/a6md3B2zDkMBME2yH16oe7nxlg0xKFWwUPsajg
+         2RcyAjLATXHWWUaIEd6N5OIjF3L5O3EBFXXfqbYafkV81XdA2YUVvl0xsD4LU2JUB7rd
+         8ANTMyj3qcpldsgxoJnaeQCqYvXiq3LnCg/QJ8n55/uEqFYHTkt47J8aq6u6I5VlkRa5
+         4r4K+mWN3+ain7cio7/HUonris19SM39DGa+UNp7tQbWmqI4l9I7IhczR8vP8bs9o6Tc
+         0xCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature:dkim-signature;
+        bh=+ssxb+f52grl28omeFnXIHViMWMfIVWtXXc3wh7Fv1M=;
+        b=Cf6Gr962N95ZcjT8ZuLn4Oo4nhag3tzVVYMmh2x046xf4rg4VnYqp3Dr6+mOP9nFzT
+         PKUE2U2mkQyOi82TzuTywcNs0HGSQx3w4ffREIFYRw0J33lF0QUjuDrOJUbvc9EqZato
+         3Ukmff+QhaFx+VeROWDkwnvOd3l5nJrsCyJX84gXpOq3gsFGJNK9IHpodzTf5/J7eOBD
+         t+J3wDYTmMae6XpCgNYrPmFOevS22/kNG2pEvLqOhgvkvGWkzgR7Z56Nxtc9MeK+XVSr
+         R9MKqSUPYxpgy/oxwJ1dDG10TOAIfwAGdA4llzN6oug37O3nF/YhXMwKC9ed6lBIzTqR
+         YDrw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@heritage.org header.s=m1 header.b=pvEqMY4E;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=ffZNkU07;
+       spf=pass (google.com: domain of
+ 824-mht-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com
+ designates 199.15.213.192 as permitted sender)
+ smtp.mailfrom=824-MHT-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=heritage.org
+Return-Path: 
+ <824-MHT-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com>
+Received: from taro.mktdns.com (taro.mktdns.com. [199.15.213.192])
+        by mx.google.com with ESMTPS id
+ y4-20020a05620a44c400b00745d33beff8si2535624qkp.134.2023.03.16.03.33.35
+        for <evelperson6+partyheritage@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 16 Mar 2023 03:33:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of
+ 824-mht-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com
+ designates 199.15.213.192 as permitted sender) client-ip=199.15.213.192;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@heritage.org header.s=m1 header.b=pvEqMY4E;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=ffZNkU07;
+       spf=pass (google.com: domain of
+ 824-mht-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com
+ designates 199.15.213.192 as permitted sender)
+ smtp.mailfrom=824-MHT-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=heritage.org
+X-MSFBL: 6iZwFdofCCUg7B9vUr4dth6r8uJDglnq8d/I/TrO2Oc=|eyJiIjoiZHZwLTE5OS0
+	xNS0yMTMtMTkyIiwiZyI6ImJnLWFiZC0xMDQiLCJyIjoiZXZlbHBlcnNvbjYrcGF
+	ydHloZXJpdGFnZUBnbWFpbC5jb20iLCJ1IjoiODI0LU1IVC0zMDQ6MDo1NTM3ODo
+	xMTY0NTY6MjM4MDY4Ojk3MzY5Ojk6Mjg3Nzc3OjE5OTExMjMxMSJ9
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1678961342;
+	s=m1; d=heritage.org; i=@heritage.org;
+	h=Content-Type:MIME-Version:Subject:To:From:Date;
+	bh=+ssxb+f52grl28omeFnXIHViMWMfIVWtXXc3wh7Fv1M=;
+	b=pvEqMY4EmuIJGXA4hnhcJ2Mww4lECsP91XQIjskOjC+9Bs3jUMJ0STd+X0lrzqvG
+	2F+9yDXHoEQOoNlOfZ0Wavv/kDcxK/a2pvDsBbgC7uT2DynGhPK9/Dc0wt5qgsw+MGT
+	1UM+QffriKEBX4x9YmEIf5OWQIfjRGq7IciNNE1A=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1678961342;
+	s=m1; d=mktdns.com; i=@mktdns.com;
+	h=Content-Type:MIME-Version:Subject:To:From:Date;
+	bh=+ssxb+f52grl28omeFnXIHViMWMfIVWtXXc3wh7Fv1M=;
+	b=ffZNkU07rOHZPWxShQMRCt5IMgYe+jhTdv7YT/o0IadHNZ8w/fscFSBam4qUzyKd
+	ZQrUv4Ndkc7HfyTsYVptE6MEGANAaLH8YgmNobRIyu6YE3TXKn8lFt9lMkrCB8XXloq
+	l5MzeAHB9Lv3mXUi2dPkVshGadmZuU7frerbBJng=
+Date: Thu, 16 Mar 2023 05:09:02 -0500 (CDT)
+From: The Daily Signal <morningbell@heritage.org>
+Reply-To: morningbell@heritage.org
+To: evelperson6+partyheritage@gmail.com
+Message-ID: <1739453149.821602186.1678961342678@abmktmail-batch1m.marketo.org>
+Subject: =?UTF-8?Q?Med_Students_Told_to_Call_Women_=E2=80=98People_With_Cer?=
+ =?UTF-8?Q?vices=E2=80=99;_Professor_Slams_?=
+ =?UTF-8?Q?=E2=80=98Anti-Biological=E2=80=99_Lesson?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_Part_821602184_1335201087.1678961342677"
+X-Binding: bg-abd-104
+List-Unsubscribe: 
+ <mailto:KRNDGTTCIVMTC4KLNBGWOML2FVDWEYTSNZYW4NTKMVZHUVCHHBGHC42VOBKDINDZIRBU2PI=.287777.97369.9@unsub-ab.mktomail.com>
+X-MarketoID: 824-MHT-304:0:55378:116456:238068:97369:9:287777:199112311
+X-PVIQ: mkto-824MHT304-000001-000000-287777
+X-Mailfrom: 
+ 824-MHT-304.0.287777.0.0.97369.9.199112311@potomac1050.mktomail.com
+X-MktArchive: false
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+X-MktMailDKIM: true
+
+------=_Part_821602184_1335201087.1678961342677
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+* ARTICLES *
+
+
+** First-Year Med Students Told to Call Women =E2=80=98People With Cervices=
+=E2=80=99; Professor Slams =E2=80=98Anti-Biological=E2=80=99 Lesson
+https://www.dailysignal.com/2023/03/15/anti-scientific-indiana-university-m=
+edical-professor-condemns-gender-lesson-required-course/?utm_source=3DTDS_E=
+mail&utm_medium=3Demail&utm_campaign=3DMorningBell
+
+A lesson at the Indiana School of Medicine laments that =E2=80=9Cmost textb=
+ooks present sex as binary=E2=80=9D and advocates for =E2=80=9Canatomy text=
+s to discuss sex on a spectrum.=E2=80=9D
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** =E2=80=98We Are Under Siege,=E2=80=99 Border County Sheriff Tells House =
+Republicans as Democrats Skip Hearing
+https://www.dailysignal.com/2023/03/15/we-are-under-siege-border-county-she=
+riff-tells-house-republicans-as-democrats-skip-hearing/?utm_source=3DTDS_Em=
+ail&utm_medium=3Demail&utm_campaign=3DMorningBell
+
+Kinney County, Texas, is =E2=80=9Cunder siege by illegal aliens and smuggle=
+rs,=E2=80=9D Sheriff Brad Coe tells a field hearing held by Republicans on =
+the House Homeland Security Committee.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** DeSantis=E2=80=99 Voter Fraud Office Nets 2 More Arrests
+https://www.dailysignal.com/2023/03/15/gov-ron-desantis-voter-fraud-office-=
+nets-2-more-arrests/?utm_source=3DTDS_Email&utm_medium=3Demail&utm_campaign=
+=3DMorningBell
+
+Florida continues a crackdown on election-related crime, announcing the arr=
+ests of two more individuals on charges of casting illegal votes in last ye=
+ar=E2=80=99s election.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** North Korea Signals More Provocations, Tensions
+https://www.dailysignal.com/2023/03/15/north-korea-signals-more-provocation=
+s-tensions/?utm_source=3DTDS_Email&utm_medium=3Demail&utm_campaign=3DMornin=
+gBell
+
+North Korean dictator Kim Jong Un again may go on a missile-launching binge=
+ and initiate extensive drills of conventional forces near the demilitarize=
+d zone.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** Ranked-Choice Voting Is =E2=80=98Spreading Like Poison,=E2=80=99 Alaskan=
+s for Honest Elections Founder Says
+https://www.dailysignal.com/2023/03/16/ranked-choice-voting-is-spreading-li=
+ke-poison-alaskans-for-honest-elections-founder-says/?utm_source=3DTDS_Emai=
+l&utm_medium=3Demail&utm_campaign=3DMorningBell
+
+The founder of Alaskans for Honest Elections speaks out against ranked-choi=
+ce voting, which he says is =E2=80=9Cspreading like poison.=E2=80=9D
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** Tech Group Executive Involved in $2M Election Grant to County Where She =
+Previously Worked
+https://www.dailysignal.com/2023/03/07/big-tech-group-spurs-questions-with-=
+2m-election-grant-to-california-county/?utm_source=3DTDS_Email&utm_medium=
+=3Demail&utm_campaign=3DMorningBell
+
+Sophie Lehman, formerly Contra Costa County=E2=80=99s manager of election o=
+perations, became the point of contact for what would be a $2 million elect=
+ion grant for the California county.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** Pro-Trump Super PAC Accuses DeSantis of Violating Florida Ethics Law
+https://www.dailysignal.com/2023/03/15/trump-super-pac-accuses-desantis-of-=
+violating-florida-ethics-law/?utm_source=3DTDS_Email&utm_medium=3Demail&utm=
+_campaign=3DMorningBell
+
+Allies of former President Donald Trump accuse Florida Gov. Ron DeSantis of=
+ violating ethics and election laws through a =E2=80=9Cshadow presidential =
+campaign,=E2=80=9D according to a 15-page complaint.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** Girls High School Basketball Team Banned From Future Tourneys for Refusi=
+ng to Compete Against Team With Male Player
+https://www.dailysignal.com/2023/03/16/girls-high-school-basketball-team-ba=
+nned-future-tournaments-after-refusing-compete-against-team-male-player/?ut=
+m_source=3DTDS_Email&utm_medium=3Demail&utm_campaign=3DMorningBell
+
+A Christian school=E2=80=99s girls basketball team is banned from competing=
+ in future tournaments after forfeiting a game against a team with a male s=
+tudent who claims to be transgender.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+** ICYMI: EXCLUSIVE: Majority of GOP Senators Back Plan to End Pentagon=E2=
+=80=99s Abortion Policies
+https://www.dailysignal.com/2023/03/15/exclusive-senators-introduce-legisla=
+tion-to-terminate-pentagons-taxpayer-funded-abortions/?utm_source=3DTDS_Ema=
+il&utm_medium=3Demail&utm_campaign=3DMorningBell
+
+=E2=80=9CThe Pentagon should not be mobilized against the unborn. The Depar=
+tment of Defense exists to defend life, not destroy it,=E2=80=9D says Sen. =
+Joni Ernst.
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+
+
+=20
+
+
+Unsubscribe
+https://www9.heritage.org/UnsubscribePage.html?mkt_unsubscribe=3D1&mkt_tok=
+=3DODI0LU1IVC0zMDQAAAGKiN2ozd8joa7P81QBl3HRaIvVu4XLYW8upOwgJ26UbRd1SEKJqmCZ=
+Wejw2Q1UuQbGoAvoVEe3cUfuTSdyciUkHe9XvC4FQQRjUISoBsF4PqbBOiyA
+
+------=_Part_821602184_1335201087.1678961342677
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>=20
+<!-- Marketo Variable Definitions -->   =20
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" />=
+=20
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0" />=20
+<title>Title</title>=20
+<style>
+=09@media only screen {
+=09=09html { min-height: 100%; background:#ececec}
+=09}
+=09td.columns table:not(.button), td.column table:not(.button), th.columns =
+table:not(.button), th.column table:not(.button) {
+=09=09width: 100%
+=09}
+
+=09@media only screen and (max-width: 596px) {
+=09=09.small-float-center {
+=09=09=09margin: 0 auto!important;
+=09=09=09float: none!important;
+=09=09=09text-align: center!important
+=09=09}
+
+=09=09.small-text-center {
+=09=09=09text-align: center!important
+=09=09}
+
+=09=09.small-text-left {
+=09=09=09text-align: left!important
+=09=09}
+
+=09=09.small-text-right {
+=09=09=09text-align: right!important
+=09=09}
+=09}
+
+=09@media only screen and (max-width: 596px) {
+=09=09.hide-for-large {
+=09=09=09display: block!important;
+=09=09=09width: auto!important;
+=09=09=09overflow: visible!important;
+=09=09=09max-height: none!important;
+=09=09=09font-size: inherit!important;
+=09=09=09line-height: inherit!important
+=09=09}
+=09}
+
+=09@media only screen and (max-width: 596px) {
+=09=09table.body table.container .hide-for-large, table.body table.containe=
+r .row.hide-for-large { display: table!important;
+=09=09=09width: 100%!important
+=09=09}
+=09}
+=09@media only screen and (max-width: 596px) {
+=09=09table.body table.container .callout-inner.hide-for-large {
+=09=09=09display: table-cell!important;
+=09=09=09width: 100%!important
+=09=09}
+=09}
+=09@media only screen and (max-width: 596px) {
+=09=09table.body table.container .show-for-large {
+=09=09=09display: none!important;
+=09=09=09width: 0;
+=09=09=09mso-hide: all;
+=09=09=09overflow: hidden }
+=09}
+=09a:hover {
+=09=09color: rgb(20, 125, 194)
+=09}
+=09a:active {
+=09=09color: rgb(20, 125, 194)
+=09}
+=09a:visited {
+=09=09color: rgb(33, 153, 232)
+=09}
+=09h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:v=
+isited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+=09=09color: rgb(33, 153, 232)
+=09}
+
+=09table.button:hover table tr td a,
+table.button:active table tr td a, table.button table tr td a:visited, tabl=
+e.button.tiny:hover table tr td a, table.button.tiny:active table tr td a, =
+table.button.tiny table tr td a:visited, table.button.small:hover table tr =
+td a, table.button.small:active table tr td a, table.button.small table tr =
+td a:visited, table.button.large:hover table tr td a, table.button.large:ac=
+tive table tr td a,
+table.button.large table tr td a:visited { color: rgb(254, 254, 254) } tabl=
+e.button:hover table td, table.button:visited table td, table.button:active=
+ table td { background: rgb(20, 125, 194); color: rgb(254, 254, 254) } tabl=
+e.button:hover table a, table.button:visited table a, table.button:active t=
+able a { border: 0 solid rgb(20, 125, 194) } table.button.secondary:hover t=
+able td { background:
+rgb(145, 145, 145); color: rgb(254, 254, 254) } table.button.secondary:hove=
+r table a { border: 0 solid rgb(145, 145, 145) } table.button.secondary:hov=
+er table td a { color: rgb(254, 254, 254) } table.button.secondary:active t=
+able td a { color: rgb(254, 254, 254) } table.button.secondary table td a:v=
+isited { color: rgb(254, 254, 254) } table.button.success:hover table td { =
+background: rgb(35,
+191, 93) } table.button.success:hover table a { border: 0 solid rgb(35, 191=
+, 93) } table.button.alert:hover table td { background: rgb(226, 51, 23) } =
+table.button.alert:hover table a { border: 0 solid rgb(226, 51, 23) } table=
+.button.warning:hover table td { background: rgb(204, 139, 0) } table.butto=
+n.warning:hover table a { border: 0px solid rgb(204, 139, 0) } .thumbnail:h=
+over, .thumbnail:focus
+{ box-shadow: 0 0 6px 1px rgba(33, 153, 232, 0.5) } @media only screen and =
+(max-width: 596px) {table.body img { width: auto; height: auto } table.body=
+ center { min-width: 0!important } table.body .container { width: 100%!impo=
+rtant } table.body .columns, table.body .column { height: auto!important; -=
+moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: bor=
+der-box;
+padding-left: 16px!important; padding-right: 16px!important } table.body .c=
+olumns .column, table.body .columns .columns, table.body .column .column, t=
+able.body .column .columns { padding-left: 0!important; padding-right: 0!im=
+portant } table.body .collapse .columns, table.body .collapse .column { pad=
+ding-left: 0!important; padding-right: 0!important } td.small-1, th.small-1=
+ { display:
+inline-block!important; width: 8.33333%!important } td.small-2, th.small-2 =
+{ display: inline-block!important; width: 16.66667%!important } td.small-3,=
+ th.small-3 { display: inline-block!important; width: 25%!important } td.sm=
+all-4, th.small-4 { display: inline-block!important; width: 33.33333%!impor=
+tant } td.small-5, th.small-5 { display: inline-block!important; width: 41.=
+66667%
+!important } td.small-6, th.small-6 { display: inline-block!important; widt=
+h: 50%!important } td.small-7, th.small-7 { display: inline-block!important=
+; width: 58.33333%!important } td.small-8, th.small-8 { display: inline-blo=
+ck!important; width: 66.66667%!important } td.small-9, th.small-9 { display=
+: inline-block!important; width: 75%!important } td.small-10, th.small-10 {=
+ display:
+inline-block!important; width: 83.33333%!important } td.small-11, th.small-=
+11 { display: inline-block!important; width: 91.66667%!important } td.small=
+-12, th.small-12 { display: inline-block!important; width: 100%!important }=
+ .columns td.small-12, .column td.small-12, .columns th.small-12, .column t=
+h.small-12 { display: block!important; width: 100%!important } table.body
+td.small-offset-1, table.body th.small-offset-1 { margin-left: 8.33333%!imp=
+ortant; Margin-left: 8.33333%!important } table.body td.small-offset-2, tab=
+le.body th.small-offset-2 { margin-left: 16.66667%!important; Margin-left: =
+16.66667%!important } table.body td.small-offset-3, table.body th.small-off=
+set-3 { margin-left: 25%!important; Margin-left: 25%!important } table.body
+td.small-offset-4, table.body th.small-offset-4 { margin-left: 33.33333%!im=
+portant; Margin-left: 33.33333%!important } table.body td.small-offset-5, t=
+able.body th.small-offset-5 { margin-left: 41.66667%!important; Margin-left=
+: 41.66667%!important } table.body td.small-offset-6, table.body th.small-o=
+ffset-6 { margin-left: 50%!important; Margin-left: 50%!important } table.bo=
+dy
+td.small-offset-7, table.body th.small-offset-7 { margin-left: 58.33333%!im=
+portant; Margin-left: 58.33333%!important } table.body td.small-offset-8, t=
+able.body th.small-offset-8 { margin-left: 66.66667%!important; Margin-left=
+: 66.66667%!important } table.body td.small-offset-9, table.body th.small-o=
+ffset-9 { margin-left: 75%!important; Margin-left: 75%!important } table.bo=
+dy
+td.small-offset-10, table.body th.small-offset-10 { margin-left: 83.33333%!=
+important; Margin-left: 83.33333%!important } table.body td.small-offset-11=
+, table.body th.small-offset-11 { margin-left: 91.66667%!important; Margin-=
+left: 91.66667%!important } table.body table.columns td.expander, table.bod=
+y table.columns th.expander { display: none!important } table.body .right-t=
+ext-pad,
+table.body .text-pad-right { padding-left: 10px!important } table.body .lef=
+t-text-pad, table.body .text-pad-left { padding-right: 10px!important } tab=
+le.menu { width: 100%!important } table.menu td, table.menu th { width: aut=
+o!important; display: inline-block!important } table.menu.vertical td, tabl=
+e.menu.vertical th, table.menu.small-vertical td, table.menu.small-vertical=
+ th { display:
+block!important } table.menu[align=3D"center"] { width: auto!important } ta=
+ble.button.small-expand, table.button.small-expanded { width: 100%!importan=
+t } table.button.small-expand table, table.button.small-expanded table { wi=
+dth: 100% } table.button.small-expand table a, table.button.small-expanded =
+table a { text-align: center!important; width: 100%!important; padding-left=
+: 0!important;
+padding-right: 0!important } table.button.small-expand center, table.button=
+.small-expanded center { min-width: 0 } } </style>=20
+<style>
+
+    @media only screen and (max-width:650px) {
+        table.button {width:100%!important;}
+        p {padding-left:0; padding-right:0!important;}
+        table.tableCollapse {width: 100%!important;}
+        img.w100 {width:100%!important; height: auto!important;}
+        td.w40 {width:40px!important}
+        table.hideTable {display:none!important;}
+        }
+
+    </style>=20
+<!-- DEFINITION OF FEEDOTTER CUSTOM FIELDS -->=20
+<!-- DEFINITION OF FEEDOTTER CUSTOM FIELDS -->=20
+</head>=20
+<body style=3D"width: 100%!important; max-width: 100vw!important; width: 10=
+0%!important; min-width: 100%; -webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; margin: 0; Margin: 0; padding: 0; -moz-box-sizing: border-b=
+ox; -webkit-box-sizing: border-box; box-sizing: border-box; background:#ece=
+cec!important; font-size: 16px; line-height: 1.3; color: rgb(10, 10, 10); f=
+ont-family: Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; =
+margin: 0; Margin: 0; text-align: left; line-height: 1.3; ">
+<div class=3D"mktEditable" id=3D"rssContent">=20
+<div class=3D"preheader " id=3D"Preheader" style=3D"mso-hide:all;visibility=
+:hidden;opacity:0;color:transparent;mso-line-height-rule:exactly;line-heigh=
+t:0;font-size:0;overflow:hidden;border-width:0;display:none !important;">=
+=20
+<p style=3D"margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;">Plu=
+s: =E2=80=98We Are Under Siege,=E2=80=99 Border County Sheriff Tells House =
+Republicans as Democrats Skip Hearing</p>=20
+</div>=20
+<table class=3D"body" data-made-with-foundation=3D"" style=3D"border-spacin=
+g: 0; border-collapse: collapse; padding: 0; vertical-align: top; text-alig=
+n: left; background: #ececec; height: 100%; width: 100%; background:#ececec=
+!important; font-size: 16px; line-height: 1.3; color: rgb(10, 10, 10); font=
+-family: Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; mar=
+gin: 0; Margin: 0; text-align: left; line-height: 1.3; ">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td class=3D"float-center" align=3D"center" valign=3D"top" style=3D" -webki=
+t-hyphens: none; -moz-hyphens: none; hyphens: none; border-collapse:collaps=
+e!important; padding: 0; vertical-align: top; text-align: left; font-size: =
+16px; line-height: 1.3; color: rgb(10, 10, 10); font-family: Helvetica, Ari=
+al, sans-serif; font-weight: normal; padding: 0; margin: 0; Margin: 0; text=
+-align:left; line-height: 1.3; margin: 0 auto; Margin: 0 auto; float: none;=
+ text-align: center;">=20
+<center data-parsed=3D"" style=3D"width: 100%; min-width: 600px;">=20
+<table class=3D"spacer float-center hideTable" style=3D"border-spacing: 0; =
+border-collapse: collapse; padding: 0; vertical-align: top; text-align: lef=
+t; width: 100%; margin: 0 auto; Margin: 0 auto; float: none; text-align: ce=
+nter;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td height=3D"16px" style=3D" -webkit-hyphens: none; -moz-hyphens: none; hy=
+phens: none; border-collapse: collapse!important; padding: 0; vertical-alig=
+n: top; text-align: left; mso-line-height-rule: exactly; font-size: 16px; l=
+ine-height: 1.3; color:rgb(10, 10, 10); font-family: Helvetica, Arial, sans=
+-serif; font-weight: normal; padding: 0; margin: 0; Margin: 0; text-align:l=
+eft; line-height: 1.3; font-size:16px;line-height:16px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table align=3D"center" class=3D"container float-center" style=3D"border-sp=
+acing: 0; border-collapse: collapse; padding: 0; vertical-align: top; backg=
+round: #ffffff; width:600px; margin: 0 auto; text-align:center;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td class=3D"mktoContainer" id=3D"emailcontainer" style=3D" -webkit-hyphens=
+: none; -moz-hyphens: none; hyphens: none; border-collapse: collapse!import=
+ant; padding: 0; vertical-align: top; text-align: left; font-size: 16px; li=
+ne-height: 1.3; color: rgb(10, 10, 10); font-family: Helvetica, Arial, sans=
+-serif; font-weight: normal; padding: 0; margin: 0; Margin: 0; text-align: =
+left; line-height: 1.3; ">=20
+<table class=3D"mktoModule spacer" id=3D"headingspacer01" mktoname=3D"Space=
+r" style=3D"border-spacing: 0; border-collapse: collapse; padding: 0; verti=
+cal-align:top; text-align: left; width: 100%; ">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td height=3D"16px" style=3D"word-wrap: break-word; -webkit-hyphens: auto; =
+-moz-hyphens: auto; hyphens: auto; border-collapse: collapse!important; pad=
+ding: 0; vertical-align: top; text-align: left; mso-line-height-rule: exact=
+ly; font-size: 16px; line-height: 1.3; color: rgb(10, 10, 10); font-family:=
+ Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; margin: 0; =
+Margin: 0; text-align: left; line-height: 1.3; font-size:16px;line-height:1=
+6px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"mktoModule row" id=3D"fullwidthimage" mktoname=3D"Full Widt=
+h Image" style=3D"border-spacing: 0; border-collapse: collapse; padding: 0;=
+ vertical-align: top; text-align: center; padding: 0; width: 100%;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: center;">=20
+<td align=3D"center" style=3D"padding-left:20px; padding-bottom:16px; paddi=
+ng-right:20px;">=20
+<div class=3D"mktoImg" id=3D"fullwidthimg" mktoname=3D"Full Image" mktolock=
+imgsize=3D"true">=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozNK8H3dwmxflhatdb7k2tGvj=
+6yfN_VNZu28oMiV2GJCeet84zgse7UO_MHLWi2FCYsw=3D"
+><img class=3D"w100" src=3D"https://fouc.sfo2.cdn.digitaloceanspaces.com/0e=
+d13653a71c/3da26c6f-dc49-11ea-8f6e-0ed13653a71c.jpg" align=3D"center" borde=
+r=3D"0" style=3D"outline:none; text-decoration:none; -ms-interpolation-mode=
+:bicubic; width:560px; height:auto; display: block; vertical-align:middle;"=
+ mktolockimgsize=3D"true" /></a>=20
+</div> </td>=20
+<th class=3D"expander" style=3D"font-size: 16px; line-height: 1.3; color: r=
+gb(10, 10, 10); font-family: Helvetica, Arial, sans-serif; font-weight: nor=
+mal; padding: 0; margin: 0; Margin: 0; text-align: left; line-height: 1.3; =
+visibility: hidden; width: 0; padding: 0 !important; "></th>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table width=3D"100%" class=3D"mktoModule row" id=3D"Datebblock" mktoname=
+=3D"Date Block" style=3D"border-spacing: 0; border-collapse: collapse; padd=
+ing: 0; vertical-align: top; text-align: left; width:100%!important; max-wi=
+dth:100%!important;">=20
+<tbody>=20
+<tr>=20
+<td style=3D"color:#706f72;font-size:14px;padding:0px 50px 0;font-family:Ar=
+ial,Helvetica,sans-serif;">=20
+<div style=3D"text-align:center;">
+ March 16 2023=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table width=3D"100%" class=3D"mktoModule" id=3D"Blurbblock" mktoname=3D"Bl=
+urb Block" style=3D"border-spacing: 0; border-collapse: collapse; padding: =
+0; vertical-align:top; text-align:left; width:100%!important; max-width:100=
+%!important;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top;">=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+<td style=3D"padding: 10px 0px; font-family:Arial, sans-serif; font-style: =
+italic; font-size: 16px; color:#3c3c3c; text-align:left; font-weight:normal=
+; text-transform: none;">=20
+<div class=3D"mktEditable" id=3D"blurb" mktoname=3D"Blurb">=20
+<p dir=3D"ltr" id=3D"isPasted" style=3D"line-height:1.38;margin-top:0pt;mar=
+gin-bottom:0pt;"><span style=3D"font-size:12pt;font-family:Arial;color:#000=
+000;background-color:transparent;font-weight:400;font-style:normal;font-var=
+iant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;wh=
+ite-space:pre-wrap;">Good morning from Washington, where House Democrats st=
+ay behind as Republican colleagues travel to Texas to see what=E2=80=99s go=
+ing on at the southern border. Virginia Allen reports on the field hearing.=
+ Women don=E2=80=99t exist for some medical students, and that=E2=80=99s to=
+o much for one professor, Tyler O=E2=80=99Neil writes. On the podcast, find=
+ out what=E2=80=99s wrong with the process known as ranked-choice voting. P=
+lus: Florida brings more voter fraud cases; North Korea behaves badly again=
+; and =E2=80=9CProblematic Women=E2=80=9D ponders the presence of boys in g=
+irls basketball. On this date in 1945, in a key victory of World War II, th=
+e U.S. military declares&nbsp;</span><span style=3D"font-size:12pt;font-fam=
+ily:Arial;color:#000000;background-color:#ffffff;font-weight:400;font-style=
+:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;wh=
+ite-space:pre;white-space:pre-wrap;">the Pacific island of Iwo Jima secured=
+ after Marines fight fiercely for weeks against Japanese defenders.</span><=
+/p>=20
+</div> </td>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"mktoModule spacer" id=3D"headingspacer02" mktoname=3D"Space=
+r" style=3D"border-spacing: 0; border-collapse: collapse; padding: 0; verti=
+cal-align:top; text-align: left; width: 100%; ">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td height=3D"16px" style=3D"word-wrap: break-word; -webkit-hyphens: auto; =
+-moz-hyphens: auto; hyphens: auto; border-collapse: collapse!important; pad=
+ding: 0; vertical-align: top; text-align: left; mso-line-height-rule: exact=
+ly; font-size: 16px; line-height: 1.3; color: rgb(10, 10, 10); font-family:=
+ Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; margin: 0; =
+Margin: 0; text-align: left; line-height: 1.3; font-size:16px;line-height:1=
+6px;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"mktoModule row" id=3D"Digestoblock" mktoname=3D"Article Blo=
+ck" style=3D"border-spacing: 0; border-collapse: collapse; padding: 0; vert=
+ical-align: top; text-align: left; padding: 0; width: 100%; position: relat=
+ive; display: table; ">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+<td style=3D"padding: 10px 0px;">=20
+<!-- Start Digesto Token -->=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS6gxP9v4Mi96nNAz-griNU4=
+NuJYIFDeOE8Axo1vHq4HWk4_41lmsBouBupbd0XukMU=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">First-Year Med Studen=
+ts Told to Call Women =E2=80=98People With Cervices=E2=80=99; Professor Sla=
+ms =E2=80=98Anti-Biological=E2=80=99 Lesson</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS6gxP9v4Mi96nNAz-griNU4=
+NuJYIFDeOE8Axo1vHq4HWk4_41lmsBouBupbd0XukMU=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"First-Year Med Students Told to Call Women =E2=
+=80=98People With Cervices=E2=80=99; Professor Slams =E2=80=98Anti-Biologic=
+al=E2=80=99 Lesson" src=3D"https://first-heritage-foundation.s3.amazonaws.c=
+om/live_files/2023/03/IU-School-of-Medicine-graduation.jpg" style=3D"outlin=
+e: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: aut=
+o; max-width: 100%; clear: both; display: block; margin: 0 auto; Margin: 0 =
+auto; float: none;" width=3D"560" border=3D"0" align=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Tyler O'Neil</span>
+<br />
+</div>=20
+<div>
+<br />A lesson at the Indiana School of Medicine laments that =E2=80=9Cmost=
+ textbooks present sex as binary=E2=80=9D and advocates for =E2=80=9Canatom=
+y texts to discuss sex on a spectrum.=E2=80=9D
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS6gxP9v4Mi96nNAz-griNU4=
+NuJYIFDeOE8Axo1vHq4HWk4_41lmsBouBupbd0XukMU=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozekQWJ11ExC2cxRkGcImIePe=
+mWAw1JuuQ1DroNYP35CDD7A64ndHY_r4-_z_b-ZuMcw=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">=E2=80=98We Are Under=
+ Siege,=E2=80=99 Border County Sheriff Tells House Republicans as Democrats=
+ Skip Hearing</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozekQWJ11ExC2cxRkGcImIePe=
+mWAw1JuuQ1DroNYP35CDD7A64ndHY_r4-_z_b-ZuMcw=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"=E2=80=98We Are Under Siege,=E2=80=99 Border Co=
+unty Sheriff Tells House Republicans as Democrats Skip Hearing" src=3D"http=
+s://first-heritage-foundation.s3.amazonaws.com/live_files/2023/03/Brad-Coe-=
+edited.jpg" style=3D"outline: none; text-decoration: none; -ms-interpolatio=
+n-mode: bicubic; width: auto; max-width: 100%; clear: both; display: block;=
+ margin: 0 auto; Margin: 0 auto; float: none;" width=3D"560" border=3D"0" a=
+lign=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Virginia Allen</span>
+<br />
+</div>=20
+<div>
+<br />Kinney County, Texas, is =E2=80=9Cunder siege by illegal aliens and s=
+mugglers,=E2=80=9D Sheriff Brad Coe tells a field hearing held by Republica=
+ns on the House Homeland Security Committee.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozekQWJ11ExC2cxRkGcImIePe=
+mWAw1JuuQ1DroNYP35CDD7A64ndHY_r4-_z_b-ZuMcw=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS05y7jSAlcSwxvQHtxnQbfL=
+BmDyxJ2OFSDn0FAfEQxTXN9cwvddnno72B_XTAgjUak=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">DeSantis=E2=80=99 Vot=
+er Fraud Office Nets 2 More Arrests</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS05y7jSAlcSwxvQHtxnQbfL=
+BmDyxJ2OFSDn0FAfEQxTXN9cwvddnno72B_XTAgjUak=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"DeSantis=E2=80=99 Voter Fraud Office Nets 2 Mor=
+e Arrests" src=3D"https://first-heritage-foundation.s3.amazonaws.com/live_f=
+iles/2023/03/FloridaVoterFraud-scaled.jpg" style=3D"outline: none; text-dec=
+oration: none; -ms-interpolation-mode: bicubic; width: auto; max-width: 100=
+%; clear: both; display: block; margin: 0 auto; Margin: 0 auto; float: none=
+;" width=3D"560" border=3D"0" align=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Fred Lucas</span>
+<br />
+</div>=20
+<div>
+<br />Florida continues a crackdown on election-related crime, announcing t=
+he arrests of two more individuals on charges of casting illegal votes in l=
+ast year=E2=80=99s election.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozS05y7jSAlcSwxvQHtxnQbfL=
+BmDyxJ2OFSDn0FAfEQxTXN9cwvddnno72B_XTAgjUak=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">COMMENTARY </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozf6inFyMFkw9Ru1lcm1UVpdQ=
+dFAPwEbtiRhBYB3nLGFuRSW660XrB4ze7t7YIoKhrWg=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">North Korea Signals M=
+ore Provocations, Tensions</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozf6inFyMFkw9Ru1lcm1UVpdQ=
+dFAPwEbtiRhBYB3nLGFuRSW660XrB4ze7t7YIoKhrWg=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"North Korea Signals More Provocations, Tensions=
+" src=3D"https://first-heritage-foundation.s3.amazonaws.com/live_files/2023=
+/03/230315_NK_Klingner.jpg" style=3D"outline: none; text-decoration: none; =
+-ms-interpolation-mode: bicubic; width: auto; max-width: 100%; clear: both;=
+ display: block; margin: 0 auto; Margin: 0 auto; float: none;" width=3D"560=
+" border=3D"0" align=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Bruce Klingner</span>
+<br />
+</div>=20
+<div>
+<br />North Korean dictator Kim Jong Un again may go on a missile-launching=
+ binge and initiate extensive drills of conventional forces near the demili=
+tarized zone.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozf6inFyMFkw9Ru1lcm1UVpdQ=
+dFAPwEbtiRhBYB3nLGFuRSW660XrB4ze7t7YIoKhrWg=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">COMMENTARY </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRzPEmAGnKAOKllKpG5bBmIE=
+S2PkDFitm8rxFtLPwmjjOeS0Z-y14LMV0U8rwZnINV0=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">Ranked-Choice Voting =
+Is =E2=80=98Spreading Like Poison,=E2=80=99 Alaskans for Honest Elections F=
+ounder Says</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRzPEmAGnKAOKllKpG5bBmIE=
+S2PkDFitm8rxFtLPwmjjOeS0Z-y14LMV0U8rwZnINV0=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"Ranked-Choice Voting Is =E2=80=98Spreading Like=
+ Poison,=E2=80=99 Alaskans for Honest Elections Founder Says" src=3D"https:=
+//first-heritage-foundation.s3.amazonaws.com/live_files/2023/03/23.3.15_Art=
+.png" style=3D"outline: none; text-decoration: none; -ms-interpolation-mode=
+: bicubic; width: auto; max-width: 100%; clear: both; display: block; margi=
+n: 0 auto; Margin: 0 auto; float: none;" width=3D"560" border=3D"0" align=
+=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Samantha Aschieris</span>
+<br />
+</div>=20
+<div>
+<br />The founder of Alaskans for Honest Elections speaks out against ranke=
+d-choice voting, which he says is =E2=80=9Cspreading like poison.=E2=80=9D
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRzPEmAGnKAOKllKpG5bBmIE=
+S2PkDFitm8rxFtLPwmjjOeS0Z-y14LMV0U8rwZnINV0=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRaai7omkQnMB547a23JFaXp=
+eUOTXvj3hI51oKT7eXqLTAqsBy87z6NQtQZ_SNfIHqA=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">Tech Group Executive =
+Involved in $2M Election Grant to County Where She Previously Worked</span>=
+</a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRaai7omkQnMB547a23JFaXp=
+eUOTXvj3hI51oKT7eXqLTAqsBy87z6NQtQZ_SNfIHqA=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"Tech Group Executive Involved in $2M Election G=
+rant to County Where She Previously Worked" src=3D"https://first-heritage-f=
+oundation.s3.amazonaws.com/live_files/2023/03/ContraCostaCountyCTCL.jpg" st=
+yle=3D"outline: none; text-decoration: none; -ms-interpolation-mode: bicubi=
+c; width: auto; max-width: 100%; clear: both; display: block; margin: 0 aut=
+o; Margin: 0 auto; float: none;" width=3D"560" border=3D"0" align=3D"middle=
+" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Fred Lucas</span>
+<br />
+</div>=20
+<div>
+<br />Sophie Lehman, formerly Contra Costa County=E2=80=99s manager of elec=
+tion operations, became the point of contact for what would be a $2 million=
+ election grant for the California county.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozRaai7omkQnMB547a23JFaXp=
+eUOTXvj3hI51oKT7eXqLTAqsBy87z6NQtQZ_SNfIHqA=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfzCmSs4uS-u1QJHr1Z2v66N=
+p_pp33byDr_0-oRO7MLN577b-O7DJ93wfH3QILL-Hlo=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">Pro-Trump Super PAC A=
+ccuses DeSantis of Violating Florida Ethics Law</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfzCmSs4uS-u1QJHr1Z2v66N=
+p_pp33byDr_0-oRO7MLN577b-O7DJ93wfH3QILL-Hlo=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"Pro-Trump Super PAC Accuses DeSantis of Violati=
+ng Florida Ethics Law" src=3D"https://first-heritage-foundation.s3.amazonaw=
+s.com/live_files/2023/03/GettyImages-1248206300-1-scaled.jpg" style=3D"outl=
+ine: none; text-decoration: none; -ms-interpolation-mode: bicubic; width: a=
+uto; max-width: 100%; clear: both; display: block; margin: 0 auto; Margin: =
+0 auto; float: none;" width=3D"560" border=3D"0" align=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Mary Margaret Olohan</span>
+<br />
+</div>=20
+<div>
+<br />Allies of former President Donald Trump accuse Florida Gov. Ron DeSan=
+tis of violating ethics and election laws through a =E2=80=9Cshadow preside=
+ntial campaign,=E2=80=9D according to a 15-page complaint.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfzCmSs4uS-u1QJHr1Z2v66N=
+p_pp33byDr_0-oRO7MLN577b-O7DJ93wfH3QILL-Hlo=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">COMMENTARY </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozLCf1FdFNLEHwrl9UG7YDPyK=
+035sOhAPe_WS36KeBxS7eqNbFboMLuhVKT0XYks_lqg=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">Girls High School Bas=
+ketball Team Banned From Future Tourneys for Refusing to Compete Against Te=
+am With Male Player</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozLCf1FdFNLEHwrl9UG7YDPyK=
+035sOhAPe_WS36KeBxS7eqNbFboMLuhVKT0XYks_lqg=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"Girls High School Basketball Team Banned From F=
+uture Tourneys for Refusing to Compete Against Team With Male Player" src=
+=3D"https://first-heritage-foundation.s3.amazonaws.com/live_files/2023/03/B=
+asketball.jpg" style=3D"outline: none; text-decoration: none; -ms-interpola=
+tion-mode: bicubic; width: auto; max-width: 100%; clear: both; display: blo=
+ck; margin: 0 auto; Margin: 0 auto; float: none;" width=3D"560" border=3D"0=
+" align=3D"middle" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Virginia Allen, Kristen Eichamer</spa=
+n>
+<br />
+</div>=20
+<div>
+<br />A Christian school=E2=80=99s girls basketball team is banned from com=
+peting in future tournaments after forfeiting a game against a team with a =
+male student who claims to be transgender.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozLCf1FdFNLEHwrl9UG7YDPyK=
+035sOhAPe_WS36KeBxS7eqNbFboMLuhVKT0XYks_lqg=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"tableCollapse" style=3D"border-spacing: 0; border-collapse:=
+ collapse; padding: 0; vertical-align: top; text-align: left; padding: 0; w=
+idth: 100%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:0px;">=20
+<div id=3D"headerblock">=20
+<h6 style=3D"border-top: 1px solid #e1e1e1; font-size: 1em; font-weight: no=
+rmal; margin: 4px 0; text-transform: uppercase;"> <span style=3D"border-top=
+: 2px solid #b61b49; display: inline-block;"><span style=3D"border-top-widt=
+h: 0px;">NEWS </span></span> </h6>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"color:#0093d0; font-family: Helvetica, Arial, sans-serif; font=
+-weight:bold; text-align:left; font-size:26px; line-height:29px; padding-bo=
+ttom:13px; padding-top:13px;">=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfmw4ARQ-qHihlWOpVruSSpS=
+YQO6csmD7BEx8tBO6kLr6RS2hMLH2S3Dh6OC5q0xveM=3D" class=3D"item-link" target=
+=3D"_blank" style=3D"text-decoration: none; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">ICYMI: EXCLUSIVE: Maj=
+ority of GOP Senators Back Plan to End Pentagon=E2=80=99s Abortion Policies=
+</span></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; text-align:left; padding-=
+bottom:15px;" align=3D"left">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfmw4ARQ-qHihlWOpVruSSpS=
+YQO6csmD7BEx8tBO6kLr6RS2hMLH2S3Dh6OC5q0xveM=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><img class=3D"w100" alt=3D"ICYMI: EXCLUSIVE: Majority of GOP Senators Back=
+ Plan to End Pentagon=E2=80=99s Abortion Policies" src=3D"https://first-her=
+itage-foundation.s3.amazonaws.com/live_files/2023/03/230315_JoniErnst.jpg" =
+style=3D"outline: none; text-decoration: none; -ms-interpolation-mode: bicu=
+bic; width: auto; max-width: 100%; clear: both; display: block; margin: 0 a=
+uto; Margin: 0 auto; float: none;" width=3D"560" border=3D"0" align=3D"midd=
+le" /></a>=20
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0a0a0a; font-family:H=
+elvetica, Arial, sans-serif; font-weight:normal; margin:0; text-align:left;=
+ padding-bottom:3px; padding-top:0px;">=20
+<div>
+<span style=3D"font-weight: bold;">By Rob Bluey</span>
+<br />
+</div>=20
+<div>
+<br />=E2=80=9CThe Pentagon should not be mobilized against the unborn. The=
+ Department of Defense exists to defend life, not destroy it,=E2=80=9D says=
+ Sen. Joni Ernst.
+</div> </td>=20
+</tr>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td style=3D"font-size:16px; line-height:21px; color:#0093d0; font-family: =
+Helvetica, Arial, sans-serif; font-weight:normal; padding:0; margin:0; text=
+-align:left; padding-bottom:25px; padding-top:10px;">=20
+<div>=20
+<a class=3D"item-link" href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozfmw4ARQ-qHihlWOpVruSSpS=
+YQO6csmD7BEx8tBO6kLr6RS2hMLH2S3Dh6OC5q0xveM=3D" style=3D"text-decoration: n=
+one; color: rgb(0, 147, 208);"
+><span style=3D"color:#0093d0; text-decoration:none;">More</span></a>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<!-- End Digesto Token --> </td>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+</tr>=20
+<tr>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+<td height=3D"60" style=3D"height:60px; font-size:1px; line-height:1px;">&n=
+bsp;</td>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table class=3D"mktoModule row" id=3D"dailysignalfootertext" mktoname=3D"Da=
+ily Signal Footer Text" style=3D"border-spacing: 0; border-collapse: collap=
+se; padding: 0; vertical-align: top; text-align: left; padding: 0; width: 1=
+00%; position: relative; display: table;">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left;">=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+<td style=3D"font-size: 16px; line-height: 1.3; color: rgb(10, 10, 10); fon=
+t-family: Helvetica, Arial, sans-serif; font-weight: normal; padding: 0; ma=
+rgin: 0; Margin: 0; text-align: left; line-height: 1.3; padding-left: 0px; =
+padding-right: 0px; padding-right: 0px; padding-left: 0px; margin: 0 auto; =
+Margin: 0 auto; padding-left: 0px; padding-bottom: 0px; padding-right: 0px;=
+ ">=20
+<table style=3D"border-spacing: 0; border-collapse: collapse; padding: 0; v=
+ertical-align: top; text-align: left; ">=20
+<tbody>=20
+<tr style=3D"padding: 0; vertical-align: top; text-align: left; ">=20
+<td style=3D"background: #ffffff;padding: 10px 0px;-moz-hyphens: none;-webk=
+it-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;word-=
+break: break-word;-webkit-hyphens: none;-ms-text-size-adjust: 100%;hyphens:=
+ none;font-family:Arial, sans-serif;font-size: 14px;line-height:23px;color:=
+ #000000;border-collapse: collapse;">=20
+<div>=20
+<img width=3D"169" height=3D"26" class=3D"mktoImg" id=3D"footerimage1" src=
+=3D"http://na-ab20.marketo.com/rs/849-PKC-016/images/LOGO-CHARCOAL_75percen=
+t.jpg" alt=3D"LOGO-CHARCOAL_75percent.jpg" border=3D"0" style=3D"width: 169=
+px; height:26px;" mktoname=3D"Footer Image 1" mktolockimgsize=3D"true" />=
+=20
+</div>=20
+<div>=20
+<p style=3D"font-size: 12px; line-height: 15px; margin: 10px 0;"> <br /> <a=
+ href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozAGMPhMX_oRzXgpodtvcOIel=
+cINR_sxH7HV201cJ2-A1TjQRezL83NuYhbRNWsDuF0s=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>Donate to The Daily Signal</a></p>=20
+<p style=3D"font-size: 12px; line-height: 15px; margin: 10px 0;"><a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozQxJ9sSAgnIQoRXxb54ReWNX=
+DBkIjhh76n6Zt0n-SeQvYKtfU_b_bINI89fPCt2k5gY=3D"
+><img src=3D"http://www9.heritage.org/rs/heritagefoundation/images/facebook=
+2020.jpg" width=3D"20" height=3D"20" border=3D"0" style=3D"vertical-align: =
+bottom" alt=3D"Find us on Facebook" /></a> <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozQxJ9sSAgnIQoRXxb54ReWNX=
+DBkIjhh76n6Zt0n-SeQvYKtfU_b_bINI89fPCt2k5gY=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>Find us on Facebook</a></p>=20
+<p style=3D"font-size: 12px; line-height: 15px; margin: 10px 0;"><a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozYdSFBZkbv5n3aANO9_2U2-c=
+Whw8eLWp2hx_HDZFG3sgmZ9xyztnRNAqPo87-7xs6XI=3D"
+><img src=3D"http://www9.heritage.org/rs/heritagefoundation/images/twitter2=
+020.jpg" width=3D"20" height=3D"20" border=3D"0" style=3D"vertical-align: b=
+ottom" alt=3D"Follow us on Twitter" /></a> <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozYdSFBZkbv5n3aANO9_2U2-c=
+Whw8eLWp2hx_HDZFG3sgmZ9xyztnRNAqPo87-7xs6XI=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>Follow us on Twitter</a><br /><br /></p>=20
+</div>=20
+<div>=20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozYdSFBZkbv5n3aANO9_2U2-c=
+Whw8eLWp2hx_HDZFG3sgmZ9xyztnRNAqPo87-7xs6XI=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+></a>=20
+<p style=3D"font-size: 12px; line-height: 15px; margin: 10px 0;"><strong>Ho=
+w are we doing?<br /></strong>We welcome your comments, suggestions, and st=
+ory tips. Please reply to this email or send us a note at <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozXwPEpkxmfbQp99HeZjI9TbV=
+owx3BVpu7O7OEoa1zQHH_wQ1bQ3K0Rh--NVbdX9SFtw=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>letters@dailysignal.com</a>.</p>=20
+</div> <p></p>=20
+<div style=3D"float: right;">=20
+<p style=3D"font-size: 12px; line-height: 18px; margin: 10px 0;"> </p>=20
+<p style=3D"font-size: 12px; line-height: 18px; margin: 10px 0;"> </p>=20
+<p style=3D"font-size: 12px; line-height: 18px; margin: 10px 0;"><strong>Th=
+e Daily Signal</strong><br /> 214 Massachusetts Avenue, NE<br /> Washington=
+, DC 20002<br /> <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozYwCiuxqk3LbQ-sgLxJTPFb0=
+sSEUN0wZZcksLSHsAuJv261Mv2bbR6HlFvyF6BaXAxo=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>(800) 546-2843</a><br /> <br /></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+<table bgcolor=3D"#DCDCDC" class=3D"mktoModule row" id=3D"dailysignalgreyfo=
+oter" mktoname=3D"Daily Signal Grey Footer" style=3D"border-spacing: 0; bor=
+der-collapse: collapse; padding: 0; vertical-align: top; text-align: left; =
+padding: 0; width: 100%; position: relative; display: table; background: #D=
+CDCDC">=20
+<tbody>=20
+<tr>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+<td style=3D"background: #DCDCDC;padding: 10px 0px;-moz-hyphens: none;-webk=
+it-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;word-=
+break: break-word;-webkit-hyphens: none;-ms-text-size-adjust: 100%;hyphens:=
+ none;font-family:Arial, sans-serif;font-size: 14px;line-height:23px; color=
+: #000000;border-collapse: collapse;"> <p style=3D"font-size: 0.75em; line-=
+height: 1.5em; margin: 10px 0;">Add <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozSGD7t6_0xambOnOgtxJi24-=
+_rLMdv06FQv5BqrIZ1-raLgpxqKnJXBxFsAx5vwV_Tk=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>morningbell@heritage.org</a> to your address book to ensure that you recei=
+ve emails from us.</p> <p style=3D"font-size: 0.75em; line-height: 1.5em; m=
+argin: 10px 0;">You are subscribed to this newsletter as evelperson6+partyh=
+eritage@gmail.com. If you want to receive other Heritage Foundation newslet=
+ters, or opt out of this newsletter, <a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozVShEkc9ilmE-2nSzNp64_2x=
+RbbfHBHWrwapKm7ltFYMwK8bjJX3SKL4nzqNUtwxGYQ=3D" style=3D"color: #0093D0; te=
+xt-decoration: none;"
+>please click here to update your subscription.</a></p> </td>=20
+<td width=3D"20" style=3D"width:20px; font-size:1px; line-height:1px;">&nbs=
+p;</td>=20
+</tr>=20
+</tbody>=20
+</table></td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</center> </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> =20
+<a href=3D
+"http://click.heritage.org/ODI0LU1IVC0zMDQAAAGKiN2ozf2FYU-VjlT6BY9iGgq62wlQ=
+q8RLAonGk5WctLNLyj9igOvc3kYCe-qfsi4MItyTqAU=3D"
+></a>
+<img src=3D"http://click.heritage.org/trk?t=3D1&mid=3DODI0LU1IVC0zMDQ6MDo1N=
+TM3ODoxMTY0NTY6MjM4MDY4Ojk3MzY5Ojk6Mjg3Nzc3OjE5OTExMjMxMTpldmVscGVyc29uNitw=
+YXJ0eWhlcml0YWdlQGdtYWlsLmNvbQ%3D%3D" width=3D"1" height=3D"1" style=3D"dis=
+play:none !important;" alt=3D"" />
+
+-
+</body>
+</html>
+------=_Part_821602184_1335201087.1678961342677--

@@ -1,0 +1,1615 @@
+Delivered-To: evelperson6+moneystash@gmail.com
+Received: by 2002:adf:dd51:0:0:0:0:0 with SMTP id u17csp23574wrm;
+        Fri, 10 Mar 2023 21:04:31 -0800 (PST)
+X-Google-Smtp-Source: 
+ AK7set9vGBZetXahd7wKdz/ZGa6kmAXSKVZX2yhsxSUErdxZ5XwaueZgbf9JbwBAHs0olIm2oMbE
+X-Received: by 2002:a81:7504:0:b0:541:64e4:2094 with SMTP id
+ q4-20020a817504000000b0054164e42094mr1018815ywc.24.1678511070734;
+        Fri, 10 Mar 2023 21:04:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1678511070; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Xok+qJBkOe2c+bewJWxhNWEkYx630QQFtwQ8I3fPh4JCuNgMEmeQqCMP6pZseepZHp
+         VdunuiDBRZ0+krFIzOIehIinJN+Y7QFJqwDYgmfck4DblIJQUZGot8JcReNSIbKC0F/J
+         SJ9TUA7dqXDc4AVrA+yFddniX3s1f4fcepCrA5WJGty919Iy+71scV0LhEvYfaNzxh2c
+         irhGfWEV08DSqShhzynOM9O35HcfgYjvHTEalUTv48o/t0xZDu4vcdrX40cu+tqEV7YU
+         BmQF+f0pWPZ4hxGzocIj6GTBiKRw/p2ehSvwk+8Wt1jamUcRomZAh75s2EeoMKecytJg
+         Vp8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20160816;
+        h=to:list-unsubscribe:reply-to:subject:message-id:mime-version:from
+         :date:dkim-signature:dkim-signature;
+        bh=yJCj/izbavK2DZlhyEFTxONC5w6sTVmDZWHzbEgn5N0=;
+        b=STiBfdQWDnynJliLqLs2gzqcJWIssjZ2/v+RgX1Xcp52x3wYpTfIaobZvl5rcpS0s8
+         RUEn4x5aIZPnZcyThbJr/cb9eWBdm0LyhMX+R5pvj5e16rTJeVCU40fiEwPCffJIgT2P
+         pVyw1OWXW8QGc6WhtxvjxNGDTAd+70fOlMlq0uvQTPPHMxJoWSxKn4bssiqKA6xwUYeR
+         GbdJRd7RDL8g/7VnmNQodP7EtBb4S50px5hrsekc2ZfvvU7RJw5USgkoobq7df4orWjz
+         IGlCBA+OzulWD8SkdStMLB93zWg03m30S84+EjgtuyGXBQnEYBT+gW4eSCnn1gFIl7lY
+         1KHA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail.stash.com header.s=s1 header.b=ptDlpLBo;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=NwrRTGb1;
+       spf=pass (google.com: domain of
+ bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com
+ designates 149.72.255.83 as permitted sender)
+ smtp.mailfrom="bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stash.com
+Return-Path: 
+ <bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com>
+Received: from o3151.abmail.mail.stash.com (o3151.abmail.mail.stash.com.
+ [149.72.255.83])
+        by mx.google.com with ESMTPS id
+ e16-20020a81e950000000b005345e6ea270si1667453ywm.87.2023.03.10.21.04.30
+        for <evelperson6+moneystash@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Mar 2023 21:04:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of
+ bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com
+ designates 149.72.255.83 as permitted sender) client-ip=149.72.255.83;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail.stash.com header.s=s1 header.b=ptDlpLBo;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=NwrRTGb1;
+       spf=pass (google.com: domain of
+ bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com
+ designates 149.72.255.83 as permitted sender)
+ smtp.mailfrom="bounces+18272181-6be6-evelperson6+moneystash=gmail.com@abmail.mail.stash.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=stash.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.stash.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=yJCj/izbavK2DZlhyEFTxONC5w6sTVmDZWHzbEgn5N0=;
+	b=ptDlpLBo+OSHphhHZkWQAGPQqMWiGcWBhmqdmbhuoT7fw1B+lNfq1b8cUpGITIPgBNyj
+	PzuGwfqI/FBGQ44dY0Hf19eJ7MTKB0X5+yhAOLf7zQjdsA0Iyr5yxp603t/AVkh+Si0NpY
+	xZX8/rZrhRmagfvM+WOQ/sudZQRRR3iPZypLFahHrQshIrND/0/xLPMixHbAxLTfNOPKAK
+	SCXEjucNPU4x/19th0dncB8ionyG46E/L4+pVBY6Deuy564Oic06JRx5J8axBPIGq8WbHG
+	OiaVuInKwW/Lhk7h8RIB39Fa5+sS0ge1PflKTaea5fnOZnWek8HHjdZ6jcVrdj/g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=yJCj/izbavK2DZlhyEFTxONC5w6sTVmDZWHzbEgn5N0=;
+	b=NwrRTGb16lr7zbV5PndSkz8edxpn/AXLNh41nv+b+RLJaCalvsmYCSVcwx1SLJmOon/y
+	IrG6F+h/8rrNgaSPFvH7CJ7iLy5ySHQrAmTPPoyllzAyDuLPtsRizexDTfPSiJFuK6kXv0
+	LAjZ0yK7HMNkN5nuYeCwmnNsbSc0wKlFA=
+Received: by filterdrecv-66896976f7-8qq26 with SMTP id
+ filterdrecv-66896976f7-8qq26-1-640C0BDD-31
+        2023-03-11 05:04:29.678632459 +0000 UTC m=+1488764.103102404
+Received: from MTgyNzIxODE (unknown)
+	by geopod-ismtpd-15 (SG) with HTTP
+	id mNQq9pk5R-CEvybhX1Lf0Q
+	Sat, 11 Mar 2023 05:04:29.636 +0000 (UTC)
+Content-Type: multipart/alternative;
+ boundary=5929c79de60405ff288e34b513e617824e20c79786ac42cc372c55fba233
+Date: Sat, 11 Mar 2023 05:04:29 +0000 (UTC)
+From: Stash <team@mail.stash.com>
+Mime-Version: 1.0
+Message-ID: <mNQq9pk5R-CEvybhX1Lf0Q@geopod-ismtpd-15>
+Subject: Welcome to Stash.
+Reply-To: no-reply@stash.com
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3A4=5Fm5f3uqonl7fll1vas7dkacc79id5vbhi9h1att9ucglkuv62f945?=
+ =?us-ascii?Q?tr=40unsubscribe=2Eemailinboundprocessing=2Ec?=
+ =?us-ascii?Q?om=3Fsubject=3DUnsubscribe&body=3DDO=5FNOT=5FDELE?=
+ =?us-ascii?Q?TE-2e3o3itjzkrtai3cldnx12l7xnzcf0o5kp0c?=
+ =?us-ascii?Q?1ldl6kbvfip6ghqb5xy3mf1k65ez1gh83q9sl5w?=
+ =?us-ascii?Q?ujkfys30spg6htf43c9iljjcuck8d-DO=5FNOT=5FDE?=
+ =?us-ascii?Q?LETE=3E?=
+X-Feedback-ID: 18272181:SG
+X-SG-EID: 
+ =?us-ascii?Q?9tzFH0raSthhRdnNGa52VjHhCZWvLaif+0bhcj8NSrjgvw+6Tn7BmEL3pY880W?=
+ =?us-ascii?Q?SP4IztcmlCwjB9R+aIkAfMYGSIuaGjA8krilID7?=
+ =?us-ascii?Q?w60gaPCOHz+uOMFdOMxTt6t6wTnqka0ldIlXbaM?=
+ =?us-ascii?Q?1nOIAS1YqNfToFdapvGt8Agie8hOZ99evSqVHKO?=
+ =?us-ascii?Q?1UIMEUjhsEm4HY3wdTT2cD=2FnYMofHXfR8IIHeXN?=
+ =?us-ascii?Q?SuiLBoYvhei4mjeTFi=2FshdP5LFom4pLRe9QlLk?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKvUYPFb2vwyNNeBc9bJi?=
+ =?us-ascii?Q?Chj3tezxFxIWTgB+yNkwXU6AhdV0VTahxRd4xJ4?=
+ =?us-ascii?Q?pJ7X+dnCFV=2FJrYhcCyP3C1qZICPIef8+1iTeAhY?=
+ =?us-ascii?Q?ExioVets+jklnsQs48CkQ6BAtLnsYlRUBy0n268?=
+ =?us-ascii?Q?hpvdqz+nugvreqsnaqpLngirJ8tFNKHfCTV4Lsm?=
+ =?us-ascii?Q?NwOWrOTB=2Fdlcq2hPxtzmtqLOV5OSCCivqgUWyCx?=
+ =?us-ascii?Q?j7XG3MK=2FK+BN6=2FB7Ip=2FfuHxJQe0fHViFBw52IHi?=
+ =?us-ascii?Q?DZhCrUnu27DM+eN=2FfyOu214Zg=2F+Att3K7+L7vV8?=
+ =?us-ascii?Q?O2IhF1JzxZvEV0kXwbgT0AJfjT3vjIkie0j6+KQ?=
+ =?us-ascii?Q?1ga+0Pl0ZIogJX=2FsBxOkBdj5zmIzAMFXJbIsdmQ?=
+ =?us-ascii?Q?RSSAA1V5odZeIycKQWFDksyncsHqLwqsV+WLLAd?=
+ =?us-ascii?Q?WOVYxC4gKUNhyAwwVQ=3D=3D?=
+To: evelperson6+moneystash@gmail.com
+X-Entity-ID: 5o1X4rk0zhcCoaurPHmGgQ==
+
+--5929c79de60405ff288e34b513e617824e20c79786ac42cc372c55fba233
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Here=E2=80=99s $30 to start. =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C         Stash ( https://ablink.mail.stash.com/ls/click?=
+upn=3DaG1xOoysGKOtyEiHOP4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G5C84sGLhNKN6Ckl-2Bs-2Fz=
+XqpvvdJUWh6kHFhg0iYfgIR8Q-3D-3DLO7H_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4H=
+n8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14en=
+PRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUh=
+Fn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIoh=
+rFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYn=
+NKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSA=
+mbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6F=
+PrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j1GAcaUSR03IdIXowrSC358=
+d7-2BDHv0d86F6pmOOmqhyLIFUIy5vGjHJ-2BrIbz4CJlmfwYodseUA4-2BfbILRDRO2ae9hoS7=
+OWhOt-2B3YJkfs8swE3YFQkE1FTwkjG4bozxK2ei-2FBoKLwuWCnVQ4BA7XQUeA-3D-3D )
+Hi Stasher,
+
+We're so happy to see you've found Stash. It's our personal
+mission to help you long-term build wealth=E2=80=94so here's a bonus $30
+to invest your way. And as a special thanks, we'll waive your
+first month's subscription fee.1
+
+Over 5 million Americans use Stash to save and invest=E2=80=94and we'd
+love for you to join them. If you're not sure where to start, try
+Smart Portfolio=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic0OVmFdt=
+FrWUFbDqWxFehuhXBC69yiTygfFPnxhkiynlfn3MTqIcb-2Bn-2F1cmk0KwafjXK5iKOHS2u2T6=
+nhLCDL3x7UWswvooCdHMm0T3ZvreYhy2J6q3u1xFcx4329Zlo3Q-3D-3D1iqt_K2N7B7aft-2Fj=
+rH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbT=
+eGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6=
+087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryK=
+OvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3=
+XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qd=
+hmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw=
+9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkn=
+a77jy-2B4GZC-2FkGNzFdXMZKwAEhMPr6kBjYICVjHQh8rQ2-2F8GRpq9jjiiDp-2B2Hla3UYEF=
+SqXeYwkTkwIlJhTxskwBZt9ZIT9YcKW3IoxSbfhRj3SXJmJv-2BlIS6mc5VmJElxr4xbpupvaTL=
+QPvmyJE38Ab-2Biw-3D-3D )
+=E2=80=94it's an easy, hands-off way to begin your investing journey.
+And we'll be here to help guide you every step of the way.
+
+So get on that path to long-term wealth=E2=80=94starting with an extra
+$30 from us.
+
+Brandon
+Stash, CEO & Founder
+
+Ready to get started? Set up your Stash and add $5 or more to
+your Personal Portfolio by=20
+
+
+
+
+
+March 12, 2023,
+and we'll give you $30 to invest.2
+
+Get my $30 (
+https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IczVz41QPEt=
+llgAPIcoDR69krmAREcHNn7-2B-2FHSsvdToR050P8-2BLsnII2ZLxdU0SceowEHCzXUS7Frp4T=
+Xq2mC-2FbUmM-2BMM6aNIv6qlL01p6NVhsHyaU7LY106sYRTIoP-2F77D0ed7c6KnnEjN-2Bqyo=
+kyhYzhlvuiikekMwkyI5T9Eklka2YIiIvSRPZdlHvXKAlZowrtm4uDJkrAqWkCicqEVTcyCKxIF=
+4Y8-2FGxKLwkM6S3stsaMezrdU3ncq8jEalXhnnhGnGvkPjuoVL8kLMjnN1LRPAYVeaDBHOY0ll=
+LjHlnYSuTTiFIdQNFsI4FHiKYrA8eHHrWmB3Z0hE1Q0mbs5XAQZHeH-2F5lCt3ca-2Bema0pspk=
+Anm_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F=
+-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopb=
+X-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpq=
+kKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUW=
+kHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhc=
+xkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FE=
+bH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjg=
+rjSeVE2MearN-2Fkna77jZrl9fEhEzuDgvRf4XWTv2k-2FBj0WKU4ndletLP9Mm7jxyUgYe5JD7=
+ixFUKuAH-2Fk3QoKuyLtUXelwOb5MtPTQO36JSVOc9PFybzzqzOmQdvSnLFp8-2FJH0KEnUqeyD=
+VIdMFk3DpUPJdy-2B3rk98akSlsmQ-3D-3D
+)
+
+How to get your offer:
+----------------------
+
+* Sign up for Stash.
+* Complete the registration process.
+* Open a Personal Portfolio.
+* Link a bank account.
+* Deposit at least $5 into your Personal Portfolio.
+Investment advisory services offered by Stash
+Investments LLC, an SEC registered investment adviser. Investing
+involves risk and investments may lose value. For more
+information, please visit www.stash.com=20
+( https://ablink.mail.stash.com/ls/click?upn=3DSSbS3xJ-2BOPKzPXi7k-2FErqizS=
+sdwgtXPuQe990x1pokGqsuv4m9YzlFfCCwkqLXN9SDoG_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQ=
+ypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuU=
+q6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c=
+-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8ap=
+dMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2F=
+UvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpm=
+KGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hN=
+zAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j9SW378oj3iEGV=
+TJdYUYnBK6RxhOVLWLsK1YGbx6cnF4WMC7RAl-2FsLN2XKLdDIc0Ths8CA-2FyA8cjGT3rUp2p7=
+PpiLUSdOy-2BqxAANeWxnRHMoyscfFk75tLZgHuWXQ242ZkdWne51MR73sZv3rzf-2B9Vg-3D-3=
+D ).
+
+To begin investing on Stash, you must be approved from an
+account verification perspective and open a brokerage account.
+
+ig=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic9LfYjy5=
+3y6B8PcB13eO4QNgpMyBRzJzuv-2FpCZGrdb4tW3faaZwYe2mllIYEZFT-2BHQ-3D-3DyKUs_K2=
+N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJ=
+YFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ2=
+5iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52=
+VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWx=
+pEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5b=
+eESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wpp=
+iA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE=
+2MearN-2Fkna77jXdRCpRANw-2F2VweqdW5NKCYgSUu9DWhgi3xdd5lpIm6aMxYDscg-2BGWY4x=
+TcgesSUAtu6wlmpy098rO8BoZp-2FBlze8OBTL3ajW4X7FeUuhwQdYfE2d72y-2Faz6U8pGJGom=
+KZQJh4Q3Sw7WNcx7XlbwZbA-3D-3D )   tw=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic1FwQkeS=
+Y8p27z7IFW-2Bi9uqLFbGKUR4g8-2Ffhj-2BcoFbpNKSBuS-2FJcrVPiuEZyJkDgHw-3D-3DM-n=
+s_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2=
+BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-=
+2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkK=
+lM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkH=
+zkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxk=
+RB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH=
+8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrj=
+SeVE2MearN-2Fkna77jcwEBlR1fbeIdBDaHx4YtxkdQPMk3ZY2E2jiiUR6w4PWRNW5cppiGCSrE=
+qriL77ZqkCcUiKOks6O2Ji8RhWs5DmJEpEWEiPUmxwqk8Rd7Jz7xACbUO2-2BjK3KHvg4hPU828=
+SdQdaxJCIZelUrtrxk80g-3D-3D )   fb=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic7RVSnEU=
+qrggIBHuMQvoCwUZl-2B2OyxEKRXSN3boaa5Lh-2BOewdH9eL-2F8G9fVA-2FOQH36vL-2BxXv2=
+46Svc5hnFn2sug-3Dy7Z6_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr=
+4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrd=
+CO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNH=
+myPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRT=
+shRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDw=
+tJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJW=
+ZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65d=
+nccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jX6fzxyc7W30H-2FBkjAt4snEWOmNFrdNg0LP=
+1l3trRYugdiI-2FTz3Nqu5MNcT1gh2aofUeaJkKAWYZXV1gUD1uluEJm-2FGRSxBo75Wl61l0PQ=
+1Kdcw-2BiP-2BEj9TTj1ZeJYDygzBzSmbtSPryJNwN0BczsgA-3D-3D )   li
+
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic3mkRiej=
+qT-2FFxTnm88HyoCYO4nZHfkKPV-2B7tyo1SiEnpZ9EMWQiN5gn2RQ8HYVcv8kV9MbQtTdgDRvh=
+XM4iMCvw-3DrO2G_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-=
+2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5R=
+yjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ=
+4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVN=
+bbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F=
+0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGO=
+wUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2=
+TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jkq5NPer2KNJG9sHwfo4GndpS4HMePRhcVk3bwnpN-2=
+FkN1wJwyPR7TyUWDW9eiVl9cfBTKnEkLsGTPR5qRiucd1XylcHxLz-2BGRVsGY2JUYnM5h29J3K=
+79TechtxBvsCQuz3Hn0umRVXsrQCGf8eLXldg-3D-3D )
+        Stash ( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyE=
+iHOP4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G5cFHkILzpN75jkKVHbIQPcTZrv6ZKeTNlDZwddbFWRC=
+Q-3D-3DKPJ9_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRh=
+LYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYr=
+niyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyy=
+nrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu=
+7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0Xqo=
+TNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqT=
+p2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5=
+NKZEoRjgrjSeVE2MearN-2Fkna77jlaGI7pzbdODzLlaVvvPOyuFG7LgUVNSuUy6nVu1vv48X8x=
+H384zlKPmezG5BsSS5Uf7vY87880q6uYWloqFQwSaWHLTbL28C-2BI2TSb9JKQLs8A1PzOBA6jB=
+lXPFlcJZWyVFfykP8C5Gs7W9gHjtULA-3D-3D )
+Available in the App Store
+or Google Play.
+
+App Store=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic8kqM8UY=
+Wj7QpvUrR-2FrUPT4sDOR-2FGlar6BgIGPzRY-2FFMbsWv37ZeV3jPJIFeZuSXisCsNmOSnH8fp=
+tzjW-2F1oEdy81WS-2B7rZlcKD3HYGqJduyXfiISRNn-2FDi22PvegKUZGg-3D-3DOstb_K2N7B=
+7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFI=
+gI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT=
+1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3=
+Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb=
+7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beES=
+GFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6=
+cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2Me=
+arN-2Fkna77jMeDrgc1V-2FUNAQPmeCo5-2Fh4-2BzDIJvx7x-2BtHzrEKyXuo8-2FLtxybR7Qt=
+qfKz82CGnA0mh4xCxBXcO9NTrED2oMJmCEw63HrkPakDIQIsALv4B5Z020zvnyojiIJFMgrIGh0=
+G-2BsKip-2BERZWaN5RTT0CJtw-3D-3D )
+   Google Play=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IcyD5fA8D=
+8hTy1p-2BcY1j-2FIsdfCNyrBmz01kyCGwddT-2BYQtvTF7RyuiWRVcN-2FhoBVeuVhjP9RFYHx=
+eiX13Yzmjh3-2BfKl2mvze8RFGMpz4vpYPJAAotjsaG5Tat4m1QvRpFeg-3D-3DVpSF_K2N7B7a=
+ft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI=
+2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1z=
+DJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg=
+-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L=
+7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGF=
+PXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM=
+-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2Mear=
+N-2Fkna77jtuIR1-2BLCOz8wMETC7H5-2BI3itsNRyEbpBzotRlpZ9OqNrPXimX-2FyljUV-2Fn=
+fBULKovy6xCFYdDe4EY96lX1I6BiohtUvGnAPgJHhtC4W8FY5WJdt-2FgrzIP369YAPzKytRNcJ=
+FhEueJHf4MPKuuOmTBTg-3D-3D )
+        Each plan includes Financial Counseling services which
+is impersonal investment advice, as it relates to guides,
+reports, and education material about investing and financial
+planning. Each plan includes the option to open a brokerage
+account and a bank account. The subscription fee is due if a
+client is receiving Financial Counseling Services regardless of
+whether or not a client chooses to open and/or use a brokerage
+account. In order to obtain personalized investment advice,
+clients are required to complete the suitability questionnaire
+during registration, must be approved from an account
+verification perspective and open a brokerage account. See
+Advisory Agreement=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic940d5JU=
+zTVDO5oCQhQE-2Fnv1tOuzexzVV-2BTqeoISJhi-2BuTHAAgLizoKMLQzj0UdMH7eW0G7vyiY1i=
+7fkYVJuAiUImO0K82T21-2FRSJWEvkK4PvYqI_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a=
+4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14=
+enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNg=
+UhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwI=
+ohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRz=
+YnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLh=
+SAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA=
+6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j-2FylCqd-2FZzWfbbUz6=
+UcdXgRjbB4adoqj-2Fo0brOywT20tWXG10oZgSPbLKc6fwenBDXDsMk50b7ufsmBO2ulVGYgopv=
+f67Ihr90Cg5iKe5s5kTRL-2FA6OfZVaF4rz9Tq4YAtItrjFwVq-2F2KoAyHAcz4AQ-3D-3D )
+ for additional details.
+
+1Promotion is subject to Terms and Conditions=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic-2B8FGL=
+WV5xyUCqBWlhm1dJYzOeTNwYM8SQu48ZA-2F74JQCqF0t20ztF-2F4rVv6fmO7jgiz0apMJZ0sJ=
+yBMpzl-2FxaA-3DbumI_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4e=
+z1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO=
+2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmy=
+PrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTsh=
+RGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJ=
+z-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZp=
+jkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnc=
+cpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jYj-2FsLCRW7R2-2FiueOWKq3Ls3jqJSTyPC8LJ=
+sG-2BDxasBzp36v34B4ZAfaEMFqPbTA2GTExuIwi8LcVRe2nxsMZh92Y6uqSqMbC6LEyLtbVwHU=
+xtOPI6KBjJfu-2FGAIlQBAQVsVczlQJHcNC5IBjw9lOvQ-3D-3D ). You
+must link a funding account to your Stash Invest Account within
+the promotion period. If you satisfy the promotion conditions,
+you will be eligible to claim your fee waiver of your monthly
+Stash Fee for the remainder of the calendar month that you
+subscribe to the monthly Stash Fee attributable to a platform
+tier, along with the entire calendar month that follows (Your
+"Fee Waiver Period.") Monthly Subscription Fees start at $1.00.
+However, you will bear the standard fees and expenses reflected
+in the pricing of the ETFs in your account, plus fees for various
+ancillary services charged by Stash. Some fees apply to the bank
+account. Please see the Deposit Account and Investment Management
+Agreements for more information. If you cancel your Stash account
+after 60 days, you may be subject to an account closing fee.
+
+Promotion is not sponsored or endorsed by Green Dot Bank, Green
+Dot Corporation, Visa U.S.A., or any of their respective
+affiliates, and none of the foregoing has any responsibility to
+fulfill any funds earned through this promotion
+
+*Offer is subject to T&Cs.** You must complete within the
+specific time period included in this offer: (i) successfully
+complete (or already have completed, or re-apply for and
+complete) the registration process of opening an individual
+taxable brokerage account ("Personal Portfolio"), (ii) link a
+funding source to your account; AND (iii) deposit at least $5
+from your funding source into your Personal Portfolio. *T&Cs=20
+( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic0V7xXdE=
+z8mzSOPy6ibwdFp-2BnoIdmPnXGzvY6T0PJSYwiaXR93GcfjBnIwOTTwe2Zs9zsiNRa7QOidOuE=
+gkat790JK-2BPBtJfyURV1HLTiF38Le2a_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8=
+DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPR=
+crte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn=
+-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrF=
+d9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNK=
+mgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmb=
+buo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPr=
+Dx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jg4viic52mB3yTs5i-2BVKpZV=
+Bz8HaaVcyNNuAWjlw8zj55YiMaJpKU007fhgcHSnESX6W31gnR-2BhWCDi2Pm-2B-2Bn9EYtDzo=
+Ui7ZI4-2FPZcI-2F46ILviFGvY7xtBVA7uulDV-2F8hNxlz7DQX-2FPABHuxl2si-2FUA-3D-3D=
+ )
+
+
+This is not an endorsement or a statement of satisfaction by any
+Stash client.
+
+A "Personal Portfolio:" You can choose your own investments only
+in a "Personal Portfolio" which is a Non-Discretionary Managed
+account.
+
+"Smart" is only available in Growth ($3) and/or premium ($9).
+
+A "Smart Portfolio" is a Discretionary Managed account whereby
+Stash has full authority to manage.
+
+Diversification and asset allocation do not guarantee a profit,
+nor do they eliminate the risk of loss of principal. Stash does
+not guarantee any level of performance or that any client will
+avoid losses in the client=E2=80=99s account.
+
+Apple, the Apple logo, and iPhone are trademarks of Apple, Inc., registered=
+ in the U.S. and other countries. App Store is a service mark of Apple, Inc=
+.<br /><br />Google Play and the Google Play logo are trademarks of Google =
+LLC.<br /><br />Stash offers access to investment and banking accounts unde=
+r each subscription plan. Each type of account is subject to different regu=
+lations and limitations. See the <a style=3D"color: #37536C; text-decoratio=
+n: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D"ht=
+tps://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic940d5JUzTVD=
+O5oCQhQE-2Fnv1tOuzexzVV-2BTqeoISJhi-2BuTHAAgLizoKMLQzj0UdMH-2B7mQtPW5rn-2Fu=
+3C15ZNnC0k-3DTE4-_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1=
+l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p=
+5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPr=
+TZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRG=
+VNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-=
+2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjk=
+GOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccp=
+I2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j4aOAOxuP1bmOtV-2F-2BLRaym475BDR85aRKRo-2=
+Bk036G5zkMEytCd4WnzfnJmJkUlrvtPnizHzkflgOarq-2BmU2vwImQP9nih4vjEUxoi1yYO-2F=
+K3Z8YvdUCxUfhveztbw41Vy70zw8ZuAzKMObp5yaQce-2BQ-3D-3D target=3D"blank">Advi=
+sory Agreement</a> for more information and the <a style=3D"color: #37536C;=
+ text-decoration: none; border-bottom: 1.2px solid #37536C; line-height: 27=
+px;" href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHO=
+P4Ic940d5JUzTVDO5oCQhQE-2Fns7NguUmr7vuQRRFRTQM8v-2BhJGZ4rvQe-2FmzSEUr3ReqFN=
+-2BF-2FbAUl3YIedjEnroRPJD5qTUYNY7vgI3-2B2p5pUHKwZ39Q_K2N7B7aft-2FjrH3oKdDn3=
+ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2N=
+LobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9a=
+rnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyV=
+CwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nU=
+gmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFk=
+ERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWL=
+x2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jBjJ2h=
+E9SDetiXTYJ5ivG-2BcnM9LCtnvW2Sy6b1QLHWaKP5tmV0I5Bp7gqPZkN1HseqGXOZKMDe15ieA=
+0aUiRCLsmfj5i2itD-2FHSXIUEvKaA6RWTrV0maSgpEQKSCzpx9R8di75w9iegFymjXN84lFPg-=
+3D-3D target=3D"blank">Deposit Account Agreement</a> for more information.<=
+br /><br />Stash Banking services provided by Stride Bank, N.A., Member FDI=
+C. The Stash Stock-Back=C2=AE Debit Mastercard=C2=AE is issued by Stride Ba=
+nk pursuant to license from Mastercard International. Mastercard and the ci=
+rcles design are registered trademarks of Mastercard International Incorpor=
+ated. Any earned stock rewards will be held in your Stash Invest account. I=
+nvestment products and services provided by Stash Investments LLC, not Stri=
+de Bank, and are Not FDIC Insured, Not Bank Guaranteed, and May Lose Value.=
+<br /><br />Stash Financial, Inc. and its affiliates (collectively =E2=80=
+=9CStash Financial=E2=80=9D) is a digital financial services company offeri=
+ng financial products for U.S. based consumers. Stash Financial is not a ba=
+nk or depository institution licensed in any jurisdiction. Investment produ=
+cts and services are offered through Stash Investments LLC (=E2=80=9CStash=
+=E2=80=9D), an SEC registered investment advisor.<br /><br />Please see our=
+ <a style=3D"color: #37536C; text-decoration: none; border-bottom: 1.2px so=
+lid #37536C; line-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/c=
+lick?upn=3DaG1xOoysGKOtyEiHOP4Ic7gPzZg6w8W2-2BxKOdqkhjd2iJ6XFWKJ0LHMRVnfa3W=
+aQoROhcozEwAJ1DLNhpItiJQ-3D-3DfiMH_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn=
+8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enP=
+Rcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhF=
+n-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohr=
+Fd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnN=
+KmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAm=
+bbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FP=
+rDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jqacqA3hxFbDQ7KVuPisWuNV=
+H-2B8V-2BfxvctSbogWTtzN-2BBkpFalPRR1hVB2YSwLyJISy1th1Am8-2F2RSxkMWdlUXE6z8M=
+m76EY86tyX9a8czPdFmk4-2FkN9VbcyOkWB4meOehNzTlCPYJgmNvjRW-2FUBmrQ-3D-3D targ=
+et=3D"blank">full disclosures</a> for important details. Subscription plans=
+ start at $3/month; see Stash=E2=80=99s <a style=3D"color: #37536C; text-de=
+coration: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" hre=
+f=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic3WLo=
+0WwfLMbc51OrWu6ytLPkToVUd-2BRMQM-2BoLzZH0HIbXlV_K2N7B7aft-2FjrH3oKdDn3ZQXw2=
+ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLa=
+QuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfU=
+s3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU=
+8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW=
+-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjx=
+kpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V=
+3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jS-2FnPu-2B=
+-2B8c9I9AG9GUvclmo9NNSYatqw-2BQwFgjfZv806q5sdHe3OWHfZsQQXsxs25YUDddsjcnbIyB=
+Lr3dx-2FL3xCkDsjipY-2BPgrME7ptH6xik2tDgY3EYTxs5GmSDWChAawL5lCgZgCa-2FDIWLIN=
+Vk7Q-3D-3D target=3D"blank">pricing page</a> and applicable <a style=3D"col=
+or: #37536C; text-decoration: none; border-bottom: 1.2px solid #37536C; lin=
+e-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xO=
+oysGKOtyEiHOP4IcyAbsK4tyUG1D1Xi8Mt1-2B1yRmjOeW0RCi19edAfZvMKA7KYxQIx3T7bng-=
+2B3MHl14icDxvzerKkUt2dChKXi4lU0PBiLxL549DohPvnLmUFm6krF2XSRscV-2BjSGaI-2B9k=
+SeA-3D-3Dri8-_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2F=
+RhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5Ryj=
+YrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Y=
+yynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbb=
+du7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0X=
+qoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwU=
+qTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TB=
+E5NKZEoRjgrjSeVE2MearN-2Fkna77jBD15e4jRWou69j6rMavvmKS-2BBe1m2TKhGwqreeQh18=
+59E-2BQId1ehbwMKxSgUZMB7MNfZ1zEyy6J1rpDbd2h3U8BSB8TuDOcSWzYQpzgQ62G0a35rQB3=
+HyLjgOx6JAhacb-2FcztayAb-2BmRnE95nSaUBg-3D-3D target=3D"blank">custodial fe=
+es.</a><br /><br />This information contained in this communication is prov=
+ided for general informational purposes only; nothing in this email should =
+be considered an offer, solicitation of an offer, or advice to buy or sell =
+securities. Any historical returns, expected returns or probability project=
+ions are hypothetical in nature and may not reflect actual future performan=
+ce. Account holdings are for illustrative purposes only. Stash does not pro=
+vide comprehensive financial planning services to individual investors. Sta=
+sh Capital LLC, an SEC registered broker-dealer and member <a style=3D"colo=
+r: #37536C; text-decoration: none; border-bottom: 1.2px solid #37536C; line=
+-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/click?upn=3DSSbS3x=
+J-2BOPKzPXi7k-2FErqoN-2B2kdZA7rYidTQQ0j2AsI-3DXnHN_K2N7B7aft-2FjrH3oKdDn3ZQ=
+Xw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLo=
+bLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arn=
+mfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCw=
+RpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgm=
+zwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkER=
+GjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2=
+j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jExeyobA=
+hC-2FcnLC-2Bp-2BgoOyNwratyn9v2Hd776mcdWJQiLeJbJ945JQI0FAzKQpcYcIIDinKlprdtG=
+bhd5YDt9sZHJYVZdit2-2FL65lJF0IghAWMWGu-2F-2F2j7hg5vcpk708-2FEhOgd618xi6ktCy=
+R2Z-2FgJg-3D-3D target=3D"blank">FINRA</a>/<a style=3D"color: #37536C; text=
+-decoration: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" =
+href=3D"https://ablink.mail.stash.com/ls/click?upn=3DSSbS3xJ-2BOPKzPXi7k-2F=
+ErqidXdyP-2F2LaVgQSNYGDmE5E-3DJ4yX_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn=
+8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enP=
+Rcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhF=
+n-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohr=
+Fd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnN=
+KmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAm=
+bbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FP=
+rDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jNI1KYhx-2BOaWEGao0fuP-2=
+BOFkzkcbAZKsssB6AILZSaDmExbBJK-2FH3W6KICPAJu6gUKOHwYUMj2y6uPYePXcnML8l0AbUr=
+iwKlgVygSU5KYxcpsmShWziilK6ntMCLR-2BbR8g-2BXI-2Fze30raDhFxeTHZjw-3D-3D targ=
+et=3D"blank">SIPC</a>, serves as introducing broker for Stash Clients=E2=80=
+=99 advisory accounts. <a style=3D"color: #37536C; text-decoration: none; b=
+order-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D"https://abli=
+nk.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IcyO0YS6REVZidkdAXwjTL3=
+8LacJWUBwvg8tiDaesl3BtNS5M_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F=
+-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48o=
+Z3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13f=
+IoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFU=
+cfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF8=
+8HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boV=
+fnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O=
+8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jDW66mBA9xfJrHFqgXnBsbbhtR4DEg-2=
+BvuHnsBnWxKW1RPCjy6UgW354J13T8bFwNVMzlFpwBcDGROVLvUj8-2F6gQxDVgVDRZHMEPdLyk=
+9pyAvlz-2FRSkKCZJonYk122VDEz-2BnuL6u8xT-2Fr21BWnmEG-2BAg-3D-3D target=3D"bl=
+ank">Apex Clearing Corporation</a>, a third-party SEC registered broker-dea=
+ler and member <a style=3D"color: #37536C; text-decoration: none; border-bo=
+ttom: 1.2px solid #37536C; line-height: 27px;" href=3D"https://ablink.mail.=
+stash.com/ls/click?upn=3DSSbS3xJ-2BOPKzPXi7k-2FErqoN-2B2kdZA7rYidTQQ0j2AsI-=
+3DXbRI_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir=
+-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCp=
+opbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5I=
+KpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2l=
+fUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJ=
+QhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-=
+2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEo=
+RjgrjSeVE2MearN-2Fkna77jUNtwnL2uxeY4coE9AVPu8fjiTCaaliY3R-2BGrpxE8AXoctCk6J=
+m-2FN-2F-2BQmwsCIrHH0HnIh0fYOLGVUUwxLERZ6vp1DqbLD3E7AFx6LloeH5DLWh1etP-2BwL=
+Sj8mRTLzbpjS5qSxMI77R6xsjPVJj5PDeg-3D-3D target=3D"blank">FINRA</a>/<a styl=
+e=3D"color: #37536C; text-decoration: none; border-bottom: 1.2px solid #375=
+36C; line-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/click?upn=
+=3DSSbS3xJ-2BOPKzPXi7k-2FErqidXdyP-2F2LaVgQSNYGDmE5E-3Diydq_K2N7B7aft-2FjrH=
+3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeG=
+kD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS608=
+7WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOv=
+TOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3Xc=
+RMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhm=
+iHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9f=
+mVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna7=
+7j7uLxjg3ENYZoRiduqvVuN7rqltqw-2Bfzmo7jaGGu0UHTQo2QNdensmJ-2FXH4nuqrfPWXDEx=
+CDoWo7IjTFOFxf2fJi6iY00gTlmG-2FDgqntWpIrN7-2BZG-2FAQSaLhsZjFUYnowGGhEbk37ok=
+n26o930mMWJA-3D-3D target=3D"blank">SIPC</a>, provides clearing and executi=
+on services and serves as qualified custodian for advisory assets of Stash =
+Clients. All product and company names are trademarks=E2=84=A2 or registere=
+d=C2=AE trademarks of their respective holders. Use of them does not imply =
+any affiliation with or endorsement by them.
+
+=C2=A9 Copyright 2023 Stash Financial,
+Inc. STASH and StashInvest
+are registered trademarks of Stash Financial, Inc.
+
+115 E 34th St #1922, New York, NY 10156
+
+STASH.COM ( https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP=
+4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G6MNcj7ag07ecgoOQY7mtpx-2BZ89ZQfNat6HP-2BqX66jYX=
+A-3D-3D5Q2R_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRh=
+LYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYr=
+niyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyy=
+nrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu=
+7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0Xqo=
+TNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqT=
+p2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5=
+NKZEoRjgrjSeVE2MearN-2Fkna77jMgKJi7PUp3d7kjUka6SvBQPk-2F1J7OtPD8aj8pK7B6eZl=
+7Vitg9bCXV1XTumPghYoDlsQFBMFLD2-2B40FgGulYfHPfRczFG5vX70PUVybRrz6W9r1uo3arp=
+VtqMNuHyMpyz42IE8wLL2bXCr6vIdioqw-3D-3D )  | UNSUBSCRIBE ( https://ablink.m=
+ail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IcyEd4533CtATcx-2FfS4fWR7mG=
+miN6VthF3JZa8yzBehiDARGw-2BbGAhH-2FlGSFRB895JIR0ODTBn0MIjGh1r-2BGaOy83XpZju=
+LR7yXdGVG8ingPa3wb80ptD9JcZy-2Fl3ftaupgqUX-2BX4KQZwfqYCnc2jJMZG8Qe0p631BX20=
+s-2BalFvnLXOVOkFoM78QS8bPXsqfsELt3nbgFFwxgGzsfNIj3D9kURyl5CSVC9K4ABKF1P2A7f=
+YFAO-2B8TvYTjoHVQWB2wZIfwItZVjKcn8jZJzxrHt7lO7ZJtMieiBND5-2Bkg1FNuWfHmECVnl=
+3bkyeg5lShwq0FwxclocOCFUdd45SaRMJozX-2F-2FMb4AWxy9rmJRxnbej91kCiVFUJ-2B1ftR=
+OW19IuIMqgtxdSWZpMnzus7lq0lALilGYpI6cWZ2BPNI47myj-2FZQZnvwvb28cvtP5q81JyEE6=
+GZ2jo2YgHxyAZKBn-2F-2FtvHTSw-2FWy8daNK-2F0odjSLvkWMtESouHXs4HdUmI2iP31r4OOC=
+3lTsdSWyLEbhjkro0ruDpSaKMAEziraeIlfyYrxaOjJv-2BZWNChjXf7xd3ABcXBIToJ6YMeINI=
+L9aTJFxrHoHQAGiVCblguskUPn4lcEdp-2_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn=
+8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enP=
+Rcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhF=
+n-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohr=
+Fd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnN=
+KmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAm=
+bbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FP=
+rDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jtb2fFGI9M34myNB-2FGjw7q=
+Rs0WR8Yp5cBW0A9MHPgK6sd6Byzb188AXUplEnNY15coDS3OmeKggMY7pUOLKKgncW0We9nj3py=
+oLzzUqg6JQQSiGO60eW-2FII0480ZpTeZY94BWz2mUdXQvg0TZqzc-2BgA-3D-3D )
+--5929c79de60405ff288e34b513e617824e20c79786ac42cc372c55fba233
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office">
+<head>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html charset=3DUTF-8">
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width,signature-scale=
+=3D1">
+  <meta name=3D"format-detection" content=3D"telephone=3Dno,date=3Dno,addre=
+ss=3Dno,email=3Dno,url=3Dno">
+  <meta name=3D"x-apple-disable-message-reformatting">
+  <meta name=3D"color-scheme" content=3D"light dark">
+  <meta name=3D"supported-color-schemes" content=3D"light dark">
+  <title></title>
+  <!--[if !mso]>-->
+  <style type=3D"text/css">
+    @font-face{font-family:'Riforma';font-style:normal;font-weight:400;src:=
+url('https://cdn.stash.com/assets/fonts/RiformaLLSub-RegularSubset.woff2')f=
+ormat('woff2');}
+    @font-face{font-family:'Riforma';font-style:normal;font-weight:500;src:=
+url('https://cdn.stash.com/assets/fonts/RiformaLLSub-MediumSubset.woff2')fo=
+rmat('woff2');}
+    @font-face{font-family:'Riforma';font-style:normal;font-weight:700;src:=
+url('https://cdn.stash.com/assets/fonts/RiformaLLSub-BoldSubset.woff2')form=
+at('woff2');}
+  </style>
+  <!--<![endif]-->
+  <style type=3D"text/css">
+    #MessageViewBody a{font-family:inherit !important;font-size:inherit !im=
+portant;font-weight:inherit !important;line-height:inherit !important;text-=
+decoration:none !important}#MessageViewBody,#MessageWebViewDiv{max-width:10=
+0% !important}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.Ex=
+ternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{l=
+ine-height:100%}a[href^=3D"tel"],a[href^=3D"sms"]{color:inherit;cursor:defa=
+ult;font-weight:inherit;text-decoration:none}a[x-apple-data-detectors]{colo=
+r:inherit !important;font-family:inherit !important;font-size:inherit !impo=
+rtant;font-weight:inherit !important;line-height:inherit !important;text-de=
+coration:none !important}body,table,p,a,li,td,span{-ms-text-size-adjust:100=
+%;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;border-c=
+ollapse:collapse;mso-line-height-rule:exactly;mso-table-lspace:0;mso-table-=
+rspace:0}html,body{height:100%;margin:0;padding:0;width:100%}img{-ms-interp=
+olation-mode:bicubic;border:0;display:block;height:auto;line-height:100%;ou=
+tline:none;text-decoration:none}table{border:0 !important;margin:0 !importa=
+nt;padding:0 !important}u+.body a{color:inherit;font-family:inherit;font-si=
+ze:inherit;font-weight:inherit;line-height:inherit}
+  </style>
+  <style type=3D"text/css">
+    h1,h2,h3,h4{font-family:'Riforma',Helvetica,Arial,sans-serif;font-weigh=
+t:500;margin:0 0 40px 0;}
+    p.p1,p.p2,p.p3,ol,ul{font-family:Helvetica,Arial,sans-serif;font-weight=
+:400;margin:0 0 40px 0;}
+    h1{font-size:72px;line-height:72px;letter-spacing:-3px;}
+    h1 sup{font-size:48px;line-height:48px;letter-spacing:-2px;}
+    h2{font-size:56px;line-height:56px;letter-spacing:-2px;}
+    h2 sup{font-size:34px;line-height:34px;letter-spacing:-2px;}
+    h3{font-size:48px;line-height:48px;letter-spacing:-2px;}
+    h3 sup{font-size:28px;line-height:28px;letter-spacing:-2px;}
+    h4{font-size:34px;line-height:34px;letter-spacing:-2px;}
+    h4 sup{font-size:22px;line-height:22px;letter-spacing:-2px;}
+    p.p1{font-size:28px;line-height:42px;}
+    p.p1 sup{font-size:14px;line-height:14px;}
+    p.p2{font-size:22px;line-height:33px;}
+    p.p2 sup{font-size:11px;line-height:11px;}
+    p.p3{font-size:12px;line-height:18px;}
+    p.p3 sup{font-size:8px;line-height:8px;}
+    ol,ul{padding:0 0 0 20px;margin:0 0 40px 0;}
+    li{font-size:22px;line-height:28px;margin:0 0 24px 0;}
+    li sup{font-size:11px;line-height:11px;}
+    hr{border:none;height:1px;color:#0B1015;background-color:#0B1015;margin=
+:0 0 40px 0;}
+    h1 a,h2 a,h3 a,h4 a,p a{color:inherit !important;}
+    #disclosures p.p3{color: #737B83 !important;margin:0 0 12px 0 !importan=
+t;}
+    #disclosures p.p3 a{color: #737B83 !important;font-weight:400 !importan=
+t;text-decoration:underline !important;}
+  </style>
+  <style type=3D"text/css">
+    body,#Main_Table{background-color:#FEFFFF;}
+    #black{background-color:#0B1015;}
+    #grey-01{background-color:#737B83;}
+    #grey-02{background-color:#C1C7CA;}
+    #grey-03{background-color:#E5EAEE;}
+    #grey-04{background-color:#F6F8FA;}
+    #white{background-color:#FEFFFF;}
+    #blue{background-color:#009CEB;}
+    #red{background-color:#FF2E00;}
+    #Main_Table,#Main_Table a{color:#0B1015;}
+    .black{color:#0B1015;}
+    .grey-01{color:#737B83;}
+    .grey-02{color:#C1C7CA;}
+    .grey-03{color:#E5EAEE;}
+    .grey-04{color:#F6F8FA;}
+    .white{color:#FEFFFF;}
+    .blue{color:#009CEB !important;}
+    .red{color:#FF2E00;}
+    a.blue{color:#009CEB;text-decoration:none!important;}
+  </style>
+  <style type=3D"text/css">
+    .button{border-radius:31px;}
+    .button a{
+      border:1px solid #FEFFFF;
+      display:inline-block;
+      border-radius:31px;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:22px;
+      line-height:26px;
+      font-weight:700!important;
+      padding:17px 51px;
+      text-align:center;
+      text-decoration:none;
+      -webkit-text-size-adjust:none;
+    }
+    .button a sup{line-height:18px;}
+    #blue.button a{background-color:#009CEB;border:1px solid #009CEB!import=
+ant;color:#FEFFFF !important;}
+    #grey-03.button a{background-color:#E5EAEE;border:1px solid #E5EAEE!imp=
+ortant;color:#0B1015 !important;}
+    .badge{border-radius:10px;}
+    .badge span{
+      border:1px solid #FEFFFF;
+      display:inline-block;
+      border-radius:10px;
+      font-family:Helvetica,Arial,sans-serif;
+      font-size:22px;
+      line-height:26px;
+      font-weight:700!important;
+      padding:6px 8px;
+      text-align:center;
+      text-decoration:none;
+      -webkit-text-size-adjust:none;
+    }
+    #grey-03.badge span{background-color:#E5EAEE;border:1px solid #E5EAEE!i=
+mportant;color:#0B1015;}
+  </style>
+  <style type=3D"text/css">
+    @media only screen and (max-width:639px){
+      h1,h2,h3,h4,h5,h6,p.p1,p.p2,p.p3{margin:0 0 24px 0;}
+      h1{font-size:52px!important;line-height:52px!important;letter-spacing=
+:-2px!important;}
+      h1 sup{font-size:34px;line-height:34px;}
+      h2{font-size:42px!important;line-height:42px!important;}
+      h2 sup{font-size:28px;line-height:28px;}
+      h3{font-size:36px!important;line-height:36px!important;}
+      h3 sup{font-size:22px!important;line-height:22px!important;}
+      h4{font-size:24px!important;line-height:24px!important;letter-spacing=
+:-1px!important;}
+      h4 sup{font-size:12px!important;line-height:12px!important;}
+      p.p1{font-size:24px!important;line-height:36px!important;}
+      p.p2,li{font-size:16px!important;line-height:24px!important;}
+      p.p3{font-size:10px!important;line-height:15px!important;}
+      ol,ul{margin:0 0 24px 0!important;}
+      .full{width:100%!important;height:auto!important;}
+      .pad24{padding-left:24px!important;padding-right:24px!important;}
+      .pad0{padding:0!important;}
+      .block{display:block!important;mso-hide:all !important;}
+      .hide{display:none!important;}
+      .button{margin-bottom:0!important;margin-right:0!important;width:100%=
+!important;}
+      .button a{padding:17px 0!important;width:100%!important;font-size:16p=
+x;line-height:28px;}
+      .badge span{font-size:16px;line-height:19px;}
+      .logo {padding:40px 0 50px 0!important;}
+      .logo img{width:87px!important;}
+      .hero img{width:155px!important;}
+      .icon,.hero{padding:0 0 40px 0!important;}
+      .icon img{width:120px!important;}
+      .icon-small{padding:6px 18px 0 0!important}
+      .icon-small img{width:27px!important;}
+      .footer{padding-top: 0!important;padding-bottom:40px!important;}
+      .hide-on-mobile { display: none !important; width: 0 !important; heig=
+ht: 0 !important; font-size: 0 !important; line-height: 0 !important; min-h=
+eight: 0 !important; }
+    }
+  </style>
+  <style type=3D"text/css">
+    @media only screen and (min-width:640px){
+      .hide-on-desktop { display: none !important; width: 0 !important; hei=
+ght: 0 !important; font-size: 0 !important; line-height: 0 !important; min-=
+height: 0 !important; }
+    }
+  </style>
+  <style>
+    u + .body .gmail-blend-screen {background:#000; mix-blend-mode: screen;=
+}
+    u + .body .gmail-blend-difference {background:#000; mix-blend-mode: dif=
+ference;}
+    </style>
+  <style type=3D"text/css">
+    [data-ogsc] .img-darkmode{display:block!important;width:auto!important;=
+overflow:visible!important;float:none!important;max-height:inherit!importan=
+t;max-width:inherit!important;line-height:auto!important;visibility:inherit=
+!important;}
+    [data-ogsc] .img-lightmode{display:none!important;}
+    @media (prefers-color-scheme:dark){
+      .img-darkmode{display:block!important;width:auto!important;overflow:v=
+isible!important;float:none!important;max-height:inherit!important;max-widt=
+h:inherit!important;line-height:auto!important;visibility:inherit!important=
+;}
+      .img-lightmode{display:none!important;}
+      body,#Main_Table{background-color:#202124!important;color:#FEFFFF!imp=
+ortant;}
+      #grey-01{background-color:#0B0C0D!important;}
+      #grey-02{background-color:#131414!important;}
+      #grey-03{background-color:#333435!important;}
+      #grey-04{background-color:#191919!important;}
+      #white{background-color:#202124!important;}
+      #Main_Table td,#Main_Table a{color:#FEFFFF!important;}
+      #blue.button a{color:#0B1015!important;}
+      #grey-03.button a{background-color:#333435!important;color:#FEFFFF!im=
+portant;border:1px solid #333435!important;}
+      #Main_Table a.blue{color:#009CEB!important;}
+      hr{color:#FEFFFF;background-color:#FEFFFF!important;}
+    }
+  </style>
+  <style type=3D"text/css">
+    :root{color-scheme:light dark;supported-color-schemes:light dark;}
+  </style>
+  <!--[if gte mso 9]>
+  <style type=3D"text/css">
+    ol li,ul li{text-indent:-1em;}
+  </style>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+</head>
+<body class=3D"body" style=3D"width:100%;margin:0;padding:0;"><img src=3D"h=
+ttps://ablink.mail.stash.com/wf/open?upn=3DQjOqh4eKrRqO862so2e-2BV9a1mys1mP=
+JyEVlNZ9Bctbai6WpQulNMKsafurJv6dcuOpyK5vAHZ06qCtX-2BcaaxOZsVwPpXji4XcIlX0dG=
+jFmHkTjbt6fWG3lj76-2F3P9zC06KyQdqtifv-2FeXJW5jbNUE2rrqssrarneideNuWcPFprZ85=
+-2BdnN7gjH4IABfRgcGVATYHB20mgfOihH4MUGQaBVm7PVCl-2Be2fi5RJlqF9MTGUQpUlRpIOF=
+8g-2FtVy3VKZnM0JKeOCw2qYmhVMEDYzt7AM50bz9Z8vOhzHJQRcDA3YRkTKHk0xH2e02DVLiJD=
+rEuDw7Iy9uX7Z9Fz-2BOxh8UkNi3kOYJppo1Cy2-2B9r0I2l-2BSk52XOBN3VEteKVGfJQ3Nucj=
+-2F57U2U10L8jGE8X665r7s-2B1wJSDGyhw7LGbPifro99P-2F0o02aa5n7mJR8P8Sqmx7k8CMS=
+Twugal4VBNa9vDHZkUg8Hz1Y00WqkntFe2XpCbxr-2FFI07f4gOgVA3fBFw7GWfERkSjqn6Zbxc=
+T9MTvFnXVxL2bcK9Ae2GvkMgl37F9Qpojp21hcpE8a8NaQLFpG5z2b6R6XcWk-2BR7mJMT3vvLJ=
+Otq6DZx9DnXkcrvs-2BO-2BeH8IjapvRYyzLlSmSqAqObw-2BNxT-2BNaf0Wjvmo61k3DdSeFXQ=
+nHyQTJHdpGTwqw-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"=
+height:1px !important;width:1px !important;border-width:0 !important;margin=
+-top:0 !important;margin-bottom:0 !important;margin-right:0 !important;marg=
+in-left:0 !important;padding-top:0 !important;padding-bottom:0 !important;p=
+adding-right:0 !important;padding-left:0 !important;"/>
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">Here=E2=80=99s $30 to start.</div>
+	<div aria-label=3D"Stash Email" lang=3D"en" role=3D"article" style=3D"font=
+-size:1rem">
+		<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+role=3D"presentation" width=3D"100%">
+			<tr>
+				<td align=3D"center" id=3D"Main_Table" style=3D"background-color:#FFFFF=
+F;">
+
+					<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"full" id=3D"white" role=3D"presentation" style=3D"width:600px;"=
+>
+						<!-- Fix to prevent preview email content after the subject -->
+						<tr class=3D"m-hide" style=3D"mso-hide: all;">
+							<td style=3D"font-size: 0pt; line-height: 0pt;">
+								&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C=
+ &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp;=
+ =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C 	&nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C =
+&nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =
+=E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=
+=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nb=
+sp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=80=8C &nbsp; =E2=
+=80=8C=20
+							</td>
+						</tr>
+						<!-- END Fix to prevent preview email content after the subject -->
+						<tr>
+							<td align=3D"center" class=3D"pad24" style=3D"padding: 0 0 16px 0;">
+								<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+									<tr>
+										<td align=3D"left" class=3D"logo" style=3D"padding: 50px 0 100px =
+0;">
+											<a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoys=
+GKOtyEiHOP4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G5C84sGLhNKN6Ckl-2Bs-2FzXqpvvdJUWh6kHF=
+hg0iYfgIR8Q-3D-3D_JoL_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr=
+4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrd=
+CO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNH=
+myPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRT=
+shRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDw=
+tJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJW=
+ZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65d=
+nccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jdbxo-2BcdjBkwLXpLrv7yrYqzS29EHGzSha5=
+DpS6xM6SVo6va-2BWWVKKXrgi67TlfrZq9gYc1Zgbq-2FETw79qkBbg8Uc7WCG6OE11bXuz8MZV=
+ppBRTN0XmTYuuPg-2BXruwCbvVuhXkl7sTPYwsv2l4N2UOQ-3D-3D" target=3D"_blank"><i=
+mg alt=3D"Stash" src=3D"https://braze-images.com/appboy/communication/asset=
+s/image_assets/images/62e1402d31273a6aab9ca1b2/original.png?1658929197" sty=
+le=3D"color: #0B1015;font-family:sans-serif;font-weight:bold;font-size:24px=
+;text-decoration:none;display:block;" width=3D"118"></a>
+										</td>
+									</tr>
+
+									<tr>
+										<td align=3D"left">
+											<p class=3D"p2">Hi Stasher,</p>
+											<p class=3D"p2">We're so happy to see you've found Stash. It's o=
+ur personal mission to help you long-term build wealth=E2=80=94so here's a =
+bonus $30 to invest your way. And as a special thanks, we'll waive your fir=
+st month's subscription fee.<sup>1</sup></p>
+											<p class=3D"p2">Over 5 million Americans use Stash to save and i=
+nvest=E2=80=94and we'd love for you to join them. If you're not sure where =
+to start, try <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xO=
+oysGKOtyEiHOP4Ic0OVmFdtFrWUFbDqWxFehuhXBC69yiTygfFPnxhkiynlfn3MTqIcb-2Bn-2F=
+1cmk0KwafjXK5iKOHS2u2T6nhLCDL3x7UWswvooCdHMm0T3ZvreYhy2J6q3u1xFcx4329Zlo3Q-=
+3D-3DACOB_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLY=
+rir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrni=
+yCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynr=
+t5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7O=
+U2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTN=
+RnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2=
+eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NK=
+ZEoRjgrjSeVE2MearN-2Fkna77jOcFYNTejyIUsEDWTdBG41Qpn6iSOm4mWzOMiS42IE0DvhmQx=
+YrDteT9WJiARlwApTHT7GcQzCParFHuZeLp6OYpfKDyjfDzlRK5CpmHhg0-2FFSxlao30Vjexxi=
+1JPZ1ki6hne3-2BV7EpBU29NJckt0Vw-3D-3D" target=3D"_blank">Smart Portfolio</a=
+>=E2=80=94it's an easy, hands-off way to begin your investing journey. And =
+we'll be here to help guide you every step of the way.</p>
+											<p class=3D"p2">So get on that path to long-term wealth=E2=80=94=
+starting with an extra $30 from us.</p>
+											<p class=3D"p2">Brandon<br>
+											Stash, CEO &amp; Founder</p>
+											<p class=3D"p2">Ready to get started? Set up your Stash and add =
+$5 or more to your Personal Portfolio by       March 12, 2023, and we'll gi=
+ve you $30 to invest.<sup>2</sup></p>
+										</td>
+									</tr>
+									<tr>
+										<td align=3D"center">
+											<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" class=3D"full" role=3D"presentation">
+												<tr>
+													<td align=3D"center" class=3D"hero" style=3D"padding:0 0 60px =
+0;">
+														<div class=3D"button" id=3D"blue">
+															<a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1x=
+OoysGKOtyEiHOP4IczVz41QPEtllgAPIcoDR69krmAREcHNn7-2B-2FHSsvdToR050P8-2BLsnI=
+I2ZLxdU0SceowEHCzXUS7Frp4TXq2mC-2FbUmM-2BMM6aNIv6qlL01p6NVhsHyaU7LY106sYRTI=
+oP-2F77D0ed7c6KnnEjN-2BqyokyhYzhlvuiikekMwkyI5T9Eklka2YIiIvSRPZdlHvXKAlZowr=
+tm4uDJkrAqWkCicqEVTcyCKxIF4Y8-2FGxKLwkM6S3stsaMezrdU3ncq8jEalXhnnhGnGvkPjuo=
+VL8kLMjnN1LRPAYVeaDBHOY0llLjHlnYSuTTiFIdQNFsI4FHiKYrA8eHHrWmB3Z0hE1Q0mbs5XB=
+tthpKchKZ02q1uQySXkRbYl5s_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-=
+2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ=
+3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fI=
+oLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUc=
+fnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88=
+HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVf=
+nlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8=
+p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jQs3oMMghf6BFIuSB33sFJZEhnPip4mph=
+aZe4RNuPCH0SHIXwBmm6yoJu3FBCxdEJbX4MAZ8pg-2FjfBaUFNEEqOhD2Ep92CpGbEzHuKYiIL=
+MZ6EQumhvsyGo2NsLy5EOSAQw9Bsg1hD967NoiNdYkpDw-3D-3D" target=3D"_blank" styl=
+e=3D"color:#FEFFFF;">Get my $30</a>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+
+					<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"full" role=3D"presentation" style=3D"width:600px;">
+						<tr>
+							<td align=3D"left" class=3D"pad24" style=3D"padding:0 0 40px 0;">
+								<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"full" id=3D"grey-04" role=3D"presentation" style=3D"width:1=
+00%;border-radius:12px;">
+									<tr>
+										<td align=3D"center" class=3D"pad24" style=3D"padding: 40px 40px =
+10px 40px;">
+											<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"width:100%;">
+												<tr>
+													<td align=3D"center">
+														<h4>How to get your offer:</h4>
+													</td>
+												</tr>
+												<tr>
+													<td align=3D"left">
+														<ol>
+															<li>Sign up for Stash.</li>
+															<li>Complete the registration process.</li>
+															<li>Open a Personal Portfolio.</li>
+															<li>Link a bank account.</li>
+															<li>Deposit at least $5 into your Personal Portfolio.</li>
+														</ol>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td align=3D"center" class=3D"pad24">
+								<p class=3D"p3" style=3D"margin:0 0 24px 0;">Investment advisory se=
+rvices offered by Stash Investments LLC, an SEC registered investment advis=
+er. Investing involves risk and investments may lose value. For more inform=
+ation, please visit <a href=3D"https://ablink.mail.stash.com/ls/click?upn=
+=3DSSbS3xJ-2BOPKzPXi7k-2FErqizSsdwgtXPuQe990x1pokGqsuv4m9YzlFfCCwkqLXN9hri8=
+_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2B=
+rDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2=
+FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKl=
+M52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHz=
+kWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkR=
+B5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8=
+wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjS=
+eVE2MearN-2Fkna77jBr1dur0hUwZR9pKrmSe9sOeyAeq6t0yF0KGvFxO5psMlNMx7ueXAV-2FY=
+MqovlzSNI0grvOP6Q2DFU8yac0YQp1Ar-2F-2BLCrf3hWym8ju6crJmAZ7E4zf9ndvagsmKjLt5=
+jutak-2Bv1RpzU9D-2BlpfOu5BRQ-3D-3D" target=3D"_blank">www.stash.com</a>.</p=
+>
+								<p class=3D"p3">To begin investing on Stash, you must be approved f=
+rom an account verification perspective and open a brokerage account.</p>
+							</td>
+						</tr>
+					</table>
+<br>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"full" role=3D"presentation" style=3D"width:600px;">
+  <tr>
+    <td align=3D"center" class=3D"pad24 footer" style=3D"padding: 40px 0 80=
+px 0;">
+      <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"full" role=3D"presentation" style=3D"width:100%;">
+        <tr>
+          <td align=3D"center" class=3D"pad0" style=3D"padding:40px 0;">
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"width:100%;max-width:275px;">
+              <tr>
+                <td align=3D"center" style=3D"padding: 0 10px 0 0;">
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4Ic9LfYjy53y6B8PcB13eO4QNgpMyBRzJzuv-2FpCZGrdb4tW3faaZwYe2=
+mllIYEZFT-2BHQ-3D-3DImqr_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2=
+BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3=
+xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIo=
+LNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcf=
+nRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88H=
+GDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfn=
+lJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p=
+65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jUBb74spoRg6EYDVTZ5Xv-2FKMI1CtmOeB=
+kg5NhuAozTjJAiVaPfFPxtrAVpdKARi2-2FQrO2ypECVx5Nh1WHRFrLcQOu4JDAEpVUC8RS0Msa=
+W4gudbwIUHneswqi-2FKtSEBhKmebo3b6CIag3S9SdvwQx7g-3D-3D" target=3D"_blank"><=
+img alt=3D"ig" src=3D"https://braze-images.com/appboy/communication/assets/=
+image_assets/images/62e1401c05379c1be9f63346/original.png?1658929180" width=
+=3D"54"></a>
+                </td>
+                <td align=3D"center" style=3D"padding: 0 10px;">
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4Ic1FwQkeSY8p27z7IFW-2Bi9uqLFbGKUR4g8-2Ffhj-2BcoFbpNKSBuS-=
+2FJcrVPiuEZyJkDgHw-3D-3DDffE_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-=
+2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte4=
+8oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br1=
+3fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjz=
+FUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5h=
+F88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8b=
+oVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE=
+1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j8OL1iKnDqmVIcfVzklqNXvLEG3uI-=
+2FDrCqP2WO5SdAeeIU3o0cygYgCI7992OC50cJRNMN4SVf-2BKr8d-2B-2FGHoTzAMTSFqe-2B-=
+2FmXBqRCZby8vnFgWvxZMFDf4Vqi22Y-2F4tvm4V-2B1SeTagaLYeFwQEmHyCg-3D-3D" targe=
+t=3D"_blank"><img alt=3D"tw" src=3D"https://braze-images.com/appboy/communi=
+cation/assets/image_assets/images/62e1401e1b96993f4b8e90ac/original.png?165=
+8929182" width=3D"54"></a>
+                </td>
+                <td align=3D"center" style=3D"padding: 0 10px;">
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4Ic7RVSnEUqrggIBHuMQvoCwUZl-2B2OyxEKRXSN3boaa5Lh-2BOewdH9e=
+L-2F8G9fVA-2FOQH36vL-2BxXv246Svc5hnFn2sug-3DyG64_K2N7B7aft-2FjrH3oKdDn3ZQXw=
+2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobL=
+aQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmf=
+Us3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRp=
+U8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzw=
+W-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGj=
+xkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6=
+V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jSJRPBoGEV=
+2k8GONwXgWY3cb-2BCBdoKpFlJmbVrtBUdxfRpn8SasPyqhBOkPsfkMkgwIiP7-2FFGhfwWcmvx=
+4-2BDjaQWsfQiE14U2-2Bofn1BcMrxKVouy6bdFm6jFdUVJzcCjkM9KnTyORD8g12ZjrLOZdhQ-=
+3D-3D" target=3D"_blank"><img alt=3D"fb" src=3D"https://braze-images.com/ap=
+pboy/communication/assets/image_assets/images/62e1401cef2b105ab784fc6a/orig=
+inal.png?1658929180" width=3D"54"></a>
+                </td>
+                <td align=3D"center" style=3D"padding: 0 0 0 10px;">
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4Ic3mkRiejqT-2FFxTnm88HyoCYO4nZHfkKPV-2B7tyo1SiEnpZ9EMWQiN=
+5gn2RQ8HYVcv8kV9MbQtTdgDRvhXM4iMCvw-3DmnD__K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQyp=
+dld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6=
+mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2=
+FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdM=
+tgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUv=
+aXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKG=
+q6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzA=
+InVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jDbdk1FqWtuXeooe=
+6QQIZI720gxbGi9WQZjGHEuIC6m-2FVwkaGjU3-2FJFKMHK5bE6IWj-2B120TStEwXe5YAzQT-2=
+BFaBoHI88JWeA7bBRcH2V-2FqBSX9VcCJcLWUBGt7wuKP-2FuszrMoIeM2Ma1d8SEegbwuGA-3D=
+-3D" target=3D"_blank"><img alt=3D"li" src=3D"https://braze-images.com/appb=
+oy/communication/assets/image_assets/images/62e1401c05379c1be9f63347/origin=
+al.png?1658929180" width=3D"54"></a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td align=3D"center" class=3D"logo" style=3D"padding:40px 0 80px =
+0;">
+            <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoy=
+sGKOtyEiHOP4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G5cFHkILzpN75jkKVHbIQPcTZrv6ZKeTNlDZw=
+ddbFWRCQ-3D-3DP-Yh_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez=
+1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2=
+p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyP=
+rTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshR=
+GVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz=
+-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpj=
+kGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dncc=
+pI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jxDnnWT6OmaQaZucVa8Wiunf53nDrkuk3gBPhI31=
+Mwa1RFuQV5zN1d0U2BZKuLNObYD9P-2FmzNO-2BujcWdRyqKswzoOnG1IG4r870Of845JP-2B40=
+EJ2lhMop1Eoe-2F4Ojl59QOcd2GLTrRWob8ArM5hW-2Frg-3D-3D" target=3D"_blank"><im=
+g alt=3D"Stash" src=3D"https://braze-images.com/appboy/communication/assets=
+/image_assets/images/62e1402d560e12237a4324a0/original.png?1658929197" styl=
+e=3D"color: #737B83;font-family:sans-serif;font-weight:bold;font-size:24px;=
+text-decoration:none;" width=3D"118"></a>
+          </td>
+        </tr>
+        <tr>
+          <td align=3D"center">
+            <p class=3D"p1"><strong>Available in the App Store<br>or Google=
+ Play.</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td align=3D"center" class=3D"icon" style=3D"padding: 0 0 80px 0;=
+">
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" role=3D"presentation" style=3D"width:100%;">
+              <tr>
+                <td align=3D"right" style=3D"width:50%;padding:0 10px 0 0;"=
+>
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4Ic8kqM8UYWj7QpvUrR-2FrUPT4sDOR-2FGlar6BgIGPzRY-2FFMbsWv37=
+ZeV3jPJIFeZuSXisCsNmOSnH8fptzjW-2F1oEdy81WS-2B7rZlcKD3HYGqJduyXfiISRNn-2FDi=
+22PvegKUZGg-3D-3D1Bhg_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr=
+4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrd=
+CO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNH=
+myPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRT=
+shRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDw=
+tJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJW=
+ZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65d=
+nccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jm8Gjps6jUQIIIzO0pfjAu7ifaHzMcGyh2YUZ=
+HCt156O24D1RszHdrs-2BATDU0u-2BazuUf0W6p1NtVzlwb8lVORguOf7VJy0VYHUdHYHzB6TFE=
+qQ4qOwj-2BUkfs9IZapCV91DuK6dpQhidy-2Fc-2Buuzrvp8w-3D-3D" target=3D"_blank">=
+<img alt=3D"App Store" src=3D"https://braze-images.com/appboy/communication=
+/assets/image_assets/images/62e140038f22cc02081c68b5/original.png?165892915=
+5" width=3D"163"></a>
+                </td>
+                <td align=3D"left" style=3D"width:50%;padding:0 0 0 10px;">
+                  <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3Da=
+G1xOoysGKOtyEiHOP4IcyD5fA8D8hTy1p-2BcY1j-2FIsdfCNyrBmz01kyCGwddT-2BYQtvTF7R=
+yuiWRVcN-2FhoBVeuVhjP9RFYHxeiX13Yzmjh3-2BfKl2mvze8RFGMpz4vpYPJAAotjsaG5Tat4=
+m1QvRpFeg-3D-3D3RZj_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4e=
+z1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO=
+2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmy=
+PrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTsh=
+RGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJ=
+z-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZp=
+jkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnc=
+cpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jNvXPihLxwxiPG0bCgWqERiH8G28WN12HxTfWvf=
+ONjyYGEwebxq9RC6nwtMvEO3XlFGzZNhZI50Z28tzKE8f0bwo8xYoR6wI6QRrN5a926HvWPb2tL=
+9cz3WpX6Vz9R5yw7CatFCgJYMvGRAW3efwz2g-3D-3D" target=3D"_blank"><img alt=3D"=
+Google Play" src=3D"https://braze-images.com/appboy/communication/assets/im=
+age_assets/images/62e14003e3b605553d66886a/original.png?1658929155" width=
+=3D"163"></a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+         <tr>
+              <td align=3D"left" id=3D"disclosures" class=3D"grey-01">
+
+											<p class=3D"p3">Each plan includes Financial Counseling services=
+ which is impersonal investment advice, as it relates to guides, reports, a=
+nd education material about investing and financial planning. Each plan inc=
+ludes the option to open a brokerage account and a bank account. The subscr=
+iption fee is due if a client is receiving Financial Counseling Services re=
+gardless of whether or not a client chooses to open and/or use a brokerage =
+account. In order to obtain personalized investment advice, clients are req=
+uired to complete the suitability questionnaire during registration, must b=
+e approved from an account verification perspective and open a brokerage ac=
+count. See <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoys=
+GKOtyEiHOP4Ic940d5JUzTVDO5oCQhQE-2Fnv1tOuzexzVV-2BTqeoISJhi-2BuTHAAgLizoKML=
+Qzj0UdMH7eW0G7vyiY1i7fkYVJuAiUImO0K82T21-2FRSJWEvkK4Pujp8_K2N7B7aft-2FjrH3o=
+KdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD=
+3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087W=
+zHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTO=
+S6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRM=
+cq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiH=
+bwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmV=
+z7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j=
+DYUfY98SSIYttD2ZKfVp53YLPa3-2B0dkwWTzMjAtaLWcZyUcLn4zIn-2FONRjIoU9lVaQb5s7-=
+2BM0-2FOgOaw2bm1jlg7jeDQDfGwks9-2FpoMX0aS8sdnZ-2B0VAMH8rJUphI5nd-2Fv6hy39Iq=
+yjkoLFmQa4gRig-3D-3D" target=3D"_blank">Advisory Agreement</a> for addition=
+al details.</p>
+											<p class=3D"p3"><sup>1</sup>Promotion is subject to <a href=3D"h=
+ttps://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic-2B8FGLWV5=
+xyUCqBWlhm1dJYzOeTNwYM8SQu48ZA-2F74JQCqF0t20ztF-2F4rVv6fmO7jgiz0apMJZ0sJyBM=
+pzl-2FxaA-3DaeDG_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l=
+-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5=
+RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrT=
+Z4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGV=
+Nbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2=
+F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkG=
+OwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI=
+2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77j-2FmkmhFQYATrLJev5-2FUqUcFXGFS9uH67Y3Hc7f=
+38bnDrnEcUvwlyEcxOTEP1J4Pe7O58V4ZWPd9HkDZx7kZRTmN7kXiQZMsjkCsiiZRvn-2FgiJwx=
+BMhNLz4Zk3XYj5q2s2fPT1e6OrKONqslvdCAaDLA-3D-3D" target=3D"_blank">Terms and=
+ Conditions</a>. You must link a funding account to your Stash Invest Accou=
+nt within the promotion period. If you satisfy the promotion conditions, yo=
+u will be eligible to claim your fee waiver of your monthly Stash Fee for t=
+he remainder of the calendar month that you subscribe to the monthly Stash =
+Fee attributable to a platform tier, along with the entire calendar month t=
+hat follows (Your "Fee Waiver Period.")  Monthly Subscription Fees start at=
+ $1.00. However, you will bear the standard fees and expenses reflected in =
+the pricing of the ETFs in your account, plus fees for various ancillary se=
+rvices charged by Stash. Some fees apply to the bank account. Please see th=
+e Deposit Account and Investment Management Agreements for more information=
+. If you cancel your Stash account after 60 days, you may be subject to an =
+account closing fee.</p>
+											<p class=3D"p3">Promotion is not sponsored or endorsed by Green =
+Dot Bank, Green Dot Corporation, Visa U.S.A., or any of their respective af=
+filiates, and none of the foregoing has any responsibility to fulfill any f=
+unds earned through this promotion</p>
+											<p class=3D"p3"><strong>*Offer is subject to T&amp;Cs.**</strong=
+> You must complete within the specific time period included in this offer:=
+ (i) successfully complete (or already have completed, or re-apply for and =
+complete) the registration process of opening an individual taxable brokera=
+ge account ("Personal Portfolio"), (ii) link a funding source to your accou=
+nt; AND (iii) deposit at least $5 from your funding source into your Person=
+al Portfolio. <a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xO=
+oysGKOtyEiHOP4Ic0V7xXdEz8mzSOPy6ibwdFp-2BnoIdmPnXGzvY6T0PJSYwiaXR93GcfjBnIw=
+OTTwe2Zs9zsiNRa7QOidOuEgkat790JK-2BPBtJfyURV1HLTiF38hMSx_K2N7B7aft-2FjrH3oK=
+dDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3=
+TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087Wz=
+Hz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS=
+6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMc=
+q6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHb=
+wdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz=
+7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jZ=
+XzWasfx85inZcDAisI44M8QSVA4YIsak6KcXNrgQ9UqEFmgPmdm1bpUlBcAzkGqpJ26NzWsCDbt=
+eh5EQqPKcRmvG-2FUslTq05-2BsdbOj4CR0pPVungf-2FNoNIgpNjZS2fnifuqL6h3FwV419JF0=
+Hch2g-3D-3D" target=3D"_blank">*T&amp;Cs</a></p>
+											<p class=3D"p3"><strong>This is not</strong> an endorsement or a=
+ statement of satisfaction by any Stash client.</p>
+											<p class=3D"p3"><strong>A "Personal Portfolio:"</strong> You can=
+ choose your own investments only in a "Personal Portfolio" which is a Non-=
+Discretionary Managed account.</p>
+											<p class=3D"p3"><strong>"Smart" is only</strong> available in Gr=
+owth ($3) and/or premium ($9).</p>
+											<p class=3D"p3"><strong>A "Smart Portfolio"</strong> is a Discre=
+tionary Managed account whereby Stash has full authority to manage.</p>
+											<p class=3D"p3"><strong>Diversification and asset</strong> alloc=
+ation do not guarantee a profit, nor do they eliminate the risk of loss of =
+principal. Stash does not guarantee any level of performance or that any cl=
+ient will avoid losses in the client=E2=80=99s account.</p>
+										                   =20
+											<p class=3D"p3">
+										=09
+											Apple, the Apple logo, and iPhone are trademarks of Apple, Inc.,=
+ registered in the U.S. and other countries. App Store is a service mark of=
+ Apple, Inc.<br><br>Google Play and the Google Play logo are trademarks of =
+Google LLC.<br><br>Stash offers access to investment and banking accounts u=
+nder each subscription plan. Each type of account is subject to different r=
+egulations and limitations. See the <a style=3D"color: #37536C; text-decora=
+tion: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D=
+"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic940d5JUz=
+TVDO5oCQhQE-2Fnv1tOuzexzVV-2BTqeoISJhi-2BuTHAAgLizoKMLQzj0UdMH7o2TLHi3ybhvi=
+-2FYO40H4J8-3DGzWz_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez=
+1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2=
+p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyP=
+rTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshR=
+GVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz=
+-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpj=
+kGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dncc=
+pI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jjTHRsnu5Oit61h8v6v8RfiklkYvz6IYU3PHyo11=
+Qvxa06ZSvsyUP4xbcQ7TJhp4uXp4ceKdrx73Fwt50Qwmvhrp4BRK-2BSL1-2FWeS8wu6vxyb3oA=
+JqB26jAkiahoqyKIjSzgevDv1RoPrhw0sDJnXAaA-3D-3D" target=3D"blank">Advisory A=
+greement</a> for more information and the <a style=3D"color: #37536C; text-=
+decoration: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" h=
+ref=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic94=
+0d5JUzTVDO5oCQhQE-2Fns7NguUmr7vuQRRFRTQM8v-2BhJGZ4rvQe-2FmzSEUr3ReqFGvUeoaW=
+xKH-2FXfYQgIgVEEs-3De4jr_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2=
+BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3=
+xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIo=
+LNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcf=
+nRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88H=
+GDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfn=
+lJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p=
+65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jVg373-2FEp3xHbHq7Muulgq2zXyafHgqR=
+UcwbTnkcxSjIgsu1K7L1h4zqx8pmxJF51noktdmSnDHiBhOIKC0c0di4MHLixP-2B7YcAZv88w-=
+2B97NCMAkMP4gUvUJE1TpUtfA7Y2RMf-2FyNbu4zspASiovjyQ-3D-3D" target=3D"blank">=
+Deposit Account Agreement</a> for more information.<br><br>Stash Banking se=
+rvices provided by Stride Bank, N.A., Member FDIC. The Stash Stock-Back=C2=
+=AE Debit Mastercard=C2=AE is issued by Stride Bank pursuant to license fro=
+m Mastercard International. Mastercard and the circles design are registere=
+d trademarks of Mastercard International Incorporated. Any earned stock rew=
+ards will be held in your Stash Invest account. Investment products and ser=
+vices provided by Stash Investments LLC, not Stride Bank, and are Not FDIC =
+Insured, Not Bank Guaranteed, and May Lose Value.<br><br>Stash Financial, I=
+nc. and its affiliates (collectively =E2=80=9CStash Financial=E2=80=9D) is =
+a digital financial services company offering financial products for U.S. b=
+ased consumers. Stash Financial is not a bank or depository institution lic=
+ensed in any jurisdiction. Investment products and services are offered thr=
+ough Stash Investments LLC (=E2=80=9CStash=E2=80=9D), an SEC registered inv=
+estment advisor.<br><br>Please see our <a style=3D"color: #37536C; text-dec=
+oration: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" href=
+=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4Ic7gPzZ=
+g6w8W2-2BxKOdqkhjd2iJ6XFWKJ0LHMRVnfa3WaQYJVDjl9pdAR-2Bu5AjojYQ7A-3D-3D9TNX_=
+K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2Br=
+DJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2F=
+J25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM=
+52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzk=
+WxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB=
+5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8w=
+ppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSe=
+VE2MearN-2Fkna77jSHze-2F41ViiOv7dA-2B3UDZN-2F0mbpRjRsJ6ItBL27s5OEsMhaJf7COm=
+WblrnFvmWVcWLiEmGzKHD1685E8uPBDVEtGZijg46c2Zux8A4m-2FGq3aHcxF3Q6jPYJeC9VyyH=
+MGKLU1BDF6lB08Oj5YrYfhH7A-3D-3D" target=3D"blank">full disclosures</a> for =
+important details. Subscription plans start at $3/month; see Stash=E2=80=99=
+s <a style=3D"color: #37536C; text-decoration: none; border-bottom: 1.2px s=
+olid #37536C; line-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/=
+click?upn=3DaG1xOoysGKOtyEiHOP4Ic3WLo0WwfLMbc51OrWu6ytIGSzRe6QB-2FWKWGBE02i=
+xxk9x1L_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYri=
+r-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyC=
+popbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5=
+IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2=
+lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRn=
+JQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX=
+-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZE=
+oRjgrjSeVE2MearN-2Fkna77jABuSP6mYuJrT6Av90k9Fj91yUmEtSNEmFO-2BiWFW42RckvSui=
+d-2Fh9E8qoiq2xv8Kk-2BvJa8mJOa9PVE8UvAZbIgt61FGKqwTPITY7mUoz-2ByqZpZkPtOk1iA=
+OWhv4-2B9rqKsI2Ffbcwr8QyHX7y-2F1OGUXg-3D-3D" target=3D"blank">pricing page<=
+/a> and applicable <a style=3D"color: #37536C; text-decoration: none; borde=
+r-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D"https://ablink.m=
+ail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IcyAbsK4tyUG1D1Xi8Mt1-2B1yR=
+mjOeW0RCi19edAfZvMKA7KYxQIx3T7bng-2B3MHl14icDxvzerKkUt2dChKXi4lU0PBiLxL549D=
+ohPvnLmUFm60FMCGcDBOfmTlsoCtLpDLw-3D-3DdWaL_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQy=
+pdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq=
+6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-=
+2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apd=
+MtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FU=
+vaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmK=
+Gq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNz=
+AInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jGMT6iucnsZtbQ1=
+37gmhucZP1jsV-2BB5d3qZqNP-2FiOmeaMEhwNM4VBF6UEirC7whQ048nraQS4R3nRl2BzqVdGP=
+y-2BupXfCDwbtF7tjZFLMQap9ij8fBf3FQX4cLwGXPL4SsbejleX3-2FAdtxHqbVd0-2B9w-3D-=
+3D" target=3D"blank">custodial fees.</a><br><br>This information contained =
+in this communication is provided for general informational purposes only; =
+nothing in this email should be considered an offer, solicitation of an off=
+er, or advice to buy or sell securities. Any historical returns, expected r=
+eturns or probability projections are hypothetical in nature and may not re=
+flect actual future performance. Account holdings are for illustrative purp=
+oses only. Stash does not provide comprehensive financial planning services=
+ to individual investors. Stash Capital LLC, an SEC registered broker-deale=
+r and member <a style=3D"color: #37536C; text-decoration: none; border-bott=
+om: 1.2px solid #37536C; line-height: 27px;" href=3D"https://ablink.mail.st=
+ash.com/ls/click?upn=3DSSbS3xJ-2BOPKzPXi7k-2FErqrgq1X-2FaGqZD0Hm1lsUFWeg-3D=
+PoZt_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2=
+F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpop=
+bX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKp=
+qkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfU=
+WkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQh=
+cxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2F=
+EbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRj=
+grjSeVE2MearN-2Fkna77jlEJsQPhBL8UMVctNSW32NZKxGjB9bqodq0kfa-2F-2Bdwfw3fDFE1=
+L-2BFoEf8utVA1RtyWkYhHJBZPkRBcVjQr8qp6F9qi-2FIst-2B5xS91jSxAwJ1BbsVgMSwhuFO=
+A1Dv1ztfTzZd0u6It-2FDfZUsDk5qGYKlw-3D-3D" target=3D"blank">FINRA</a>/<a sty=
+le=3D"color: #37536C; text-decoration: none; border-bottom: 1.2px solid #37=
+536C; line-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/click?up=
+n=3DSSbS3xJ-2BOPKzPXi7k-2FErqiCc51j0x94MDrQMZx8IaXs-3DbO79_K2N7B7aft-2FjrH3=
+oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGk=
+D3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087=
+WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvT=
+OS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcR=
+Mcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmi=
+HbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fm=
+Vz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77=
+jgEKOgBiTdujKyqpLpev4W6AUdzwGyp4qLcLIBD5xaVRSWU6UVCsvwp0423QTwA0YzKbfm7opTQ=
+4zOUfVIr0YMiFQ7dP7T7LNvkynmVOVpYkuaMtdnFnz00jU3SsDqYgolNOMm6wAJk3MGpFPuK4Cz=
+Q-3D-3D" target=3D"blank">SIPC</a>, serves as introducing broker for Stash =
+Clients=E2=80=99 advisory accounts. <a style=3D"color: #37536C; text-decora=
+tion: none; border-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D=
+"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4IcyO0YS6RE=
+VZidkdAXwjTL39i2OoFU79Uw4QLYKU3amfZzcPH_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld=
+1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp=
+14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFH=
+NgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJ=
+wIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXD=
+RzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6V=
+LhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInV=
+mA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jxFZQqLV1htXMTMX0km=
+-2FyZRo8uzj7ejB-2FkLHak-2FBXUkQYuv7UZUWajzI3NjvxlCsxRHwGQnDV-2Fb28ywzuTbwVg=
+CC4nZb-2F706OheoNZoB7OLY5OosTgKnv93r8yaYs6TKbswNN4qIQ8dfgoS7uZQvgOA-3D-3D" =
+target=3D"blank">Apex Clearing Corporation</a>, a third-party SEC registere=
+d broker-dealer and member <a style=3D"color: #37536C; text-decoration: non=
+e; border-bottom: 1.2px solid #37536C; line-height: 27px;" href=3D"https://=
+ablink.mail.stash.com/ls/click?upn=3DSSbS3xJ-2BOPKzPXi7k-2FErqrgq1X-2FaGqZD=
+0Hm1lsUFWeg-3D_MYh_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez=
+1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2=
+p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyP=
+rTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshR=
+GVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz=
+-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpj=
+kGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dncc=
+pI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jF-2FoJV-2BezUCiC6OaosnAnu1rIXabJhA5h7nv=
+LwSCPbZRbgNeQETAyiHtscKCxy1GDQ1GGvGbMes9CnTgXZWEpIHmOWTzlSdcp56KSm9BJ86Q0xp=
+O8hlMBKA4qMF-2Fojv1r4UjmoGFCHmcp83w3psTpAA-3D-3D" target=3D"blank">FINRA</a=
+>/<a style=3D"color: #37536C; text-decoration: none; border-bottom: 1.2px s=
+olid #37536C; line-height: 27px;" href=3D"https://ablink.mail.stash.com/ls/=
+click?upn=3DSSbS3xJ-2BOPKzPXi7k-2FErqiCc51j0x94MDrQMZx8IaXs-3DkBjG_K2N7B7af=
+t-2FjrH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2=
+oIqbTeGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zD=
+JaGS6087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-=
+2BryKOvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7=
+gASZ3XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFP=
+XF1qdhmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-=
+2Ffyw9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN=
+-2Fkna77j5titeh5SpTO8ePUS-2BLqDkC9kOQdVSJ4vSJXvds-2BV6SExIk7vdWPpTEdDaqh-2F=
+NQPF24xCSxOyeHaG9ZESqTuLj2D5gLe-2FW2TcduSx1Dh-2B5cQR0hjD-2BX2hkZ7SZdysgugDP=
+LNK2-2Ft7D80-2FMBgF0sxNqA-3D-3D" target=3D"blank">SIPC</a>, provides cleari=
+ng and execution services and serves as qualified custodian for advisory as=
+sets of Stash Clients. All product and company names are trademarks=E2=84=
+=A2 or registered=C2=AE trademarks of their respective holders. Use of them=
+ does not imply any affiliation with or endorsement by them.</p>
+										=09
+								=09
+											<div style=3D"text-align:center;">
+												<p class=3D"p3">=C2=A9 Copyright 2023 Stash Financial, Inc. STA=
+SH and StashInvest<br>are registered trademarks of Stash Financial, Inc.</p=
+>
+												<p class=3D"p3">115 E 34th St #1922, New York, NY 10156</p>
+												<p class=3D"p3"><a href=3D"https://ablink.mail.stash.com/ls/cli=
+ck?upn=3DaG1xOoysGKOtyEiHOP4Ic-2BEx-2BgnMzZ7m1eIYMX8q0G6MNcj7ag07ecgoOQY7mt=
+px-2BZ89ZQfNat6HP-2BqX66jYXA-3D-3DubQv_K2N7B7aft-2FjrH3oKdDn3ZQXw2ToQypdld1=
+a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbTeGkD3TC2NLobLaQuUq6mEp1=
+4enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6087WzHz9arnmfUs3c-2FFHN=
+gUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryKOvTOS6lyVCwRpU8apdMtgJw=
+IohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3XcRMcq6nUgmzwW-2FUvaXDR=
+zYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qdhmiHbwdFkERGjxkpmKGq6VL=
+hSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw9fmVz7yWLx2j6V3hNzAInVm=
+A6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkna77jgXHOt9bUD4Aw2Tox9pU=
+iQcZUKoAFDvkZ6pvSAKl1q6jhoMze1DGd8PZKlLod8qaLCT1EbJr-2BA8gom5tY3oI9JIkzCTNA=
+KbIxpoL-2FUN-2Bmr0iVx6mk-2FIJHRNDXyNq85-2Fpz9kE7ZftBvDepBQruzzIZJw-3D-3D" t=
+arget=3D"_blank" style=3D"text-decoration:none;">STASH.COM</a>&nbsp;|&nbsp;=
+<a href=3D"https://ablink.mail.stash.com/ls/click?upn=3DaG1xOoysGKOtyEiHOP4=
+IcyEd4533CtATcx-2FfS4fWR7mGmiN6VthF3JZa8yzBehiDARGw-2BbGAhH-2FlGSFRB895JIR0=
+ODTBn0MIjGh1r-2BGaOy83XpZjuLR7yXdGVG8ingPa3wb80ptD9JcZy-2Fl3ftaupgqUX-2BX4K=
+QZwfqYCnc2jJMZG8Qe0p631BX20s-2BalFvnLXOVOkFoM78QS8bPXsqfsELt3nbgFFwxgGzsfNI=
+j3D9kURyl5CSVC9K4ABKF1P2A7fYFAO-2B8TvYTjoHVQWB2wZIfwItZVjKcn8jZJzxrHt7lO7ZJ=
+tMieiBND5-2Bkg1FNuWfHmECVnl3bkyeg5lShwq0FwxclocOCFUdd45SaRMJozX-2F-2FMb4AWx=
+y9rmJRxnbej91kCiVFUJ-2B1ftROW19IuIMqgtxdSWZpMnzus7lq0lALilGYpI6cWZ2BPNI47my=
+j-2FZQZnvwvb28cvtP5q81JyEE6GZ2jo2YgHxyAZKBn-2F-2FtvHTSw-2FWy8daNK-2F0odjSLv=
+kWMtESouHXs4HdUmI2iP31r4OOC3lTsdSWyLEbhjkro0ruDpSaKMAEziraeIlfyYrxaOjJv-2BZ=
+WNChjXf7xd3ABcXBIToJ6YMeINIL9aTJFxrHoHQAGiVCblguskUPn4lcEh7hb_K2N7B7aft-2Fj=
+rH3oKdDn3ZQXw2ToQypdld1a4Hn8DHJa-2F-2BVr4ez1l-2FRhLYrir-2F-2BrDJYFIgI2oIqbT=
+eGkD3TC2NLobLaQuUq6mEp14enPRcrte48oZ3xrdCO2p5RyjYrniyCpopbX-2FJ25iT1zDJaGS6=
+087WzHz9arnmfUs3c-2FFHNgUhFn-2Br13fIoLNHmyPrTZ4Yyynrt5IKpqkKlM52VF3Jg-2BryK=
+OvTOS6lyVCwRpU8apdMtgJwIohrFd9mjzFUcfnRTshRGVNbbdu7OU2lfUWkHzkWxpEb7L7gASZ3=
+XcRMcq6nUgmzwW-2FUvaXDRzYnNKmgC5hF88HGDwtJz-2F0XqoTNRnJQhcxkRB5beESGFPXF1qd=
+hmiHbwdFkERGjxkpmKGq6VLhSAmbbuo8boVfnlJWZpjkGOwUqTp2eX-2FEbH8wppiA6cM-2Ffyw=
+9fmVz7yWLx2j6V3hNzAInVmA6FPrDx5pE1O8p65dnccpI2TBE5NKZEoRjgrjSeVE2MearN-2Fkn=
+a77j0qU5WBbcBzinXb4RTh68KxM-2FYrN64dkZoHy7z2000Wwt7teQACJDJLeClVniPkm-2B7Qb=
+pzfBxAlAeRYtefMe2f2AH0fWh2uq4WAeSpTlgDJeKZZ9M7TJPp1CLoOBdMWjivs405Mg1X4I4yB=
+RcxQUB3A-3D-3D" target=3D"_blank" style=3D"text-decoration:none;">UNSUBSCRI=
+BE</a></p>
+											=09
+											</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				=09
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
+
+--5929c79de60405ff288e34b513e617824e20c79786ac42cc372c55fba233--

@@ -1,0 +1,20 @@
+MIME-Version: 1.0
+Date: Wed, 15 Mar 2023 17:05:19 -0700
+Message-ID: 
+ <CAGDr3zqYQ5PaPJEjn=oxZFq7yBdYRpH41zGcuZg7a83ZhLAmPw@mail.gmail.com>
+Subject: note to self
+From: Eve Person <evelperson6@gmail.com>
+To: Eve Person <evelperson6+self@gmail.com>
+Content-Type: multipart/alternative; boundary="00000000000062005f05f6f937da"
+
+--00000000000062005f05f6f937da
+Content-Type: text/plain; charset="UTF-8"
+
+Hi
+
+--00000000000062005f05f6f937da
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Hi</div>
+
+--00000000000062005f05f6f937da--
