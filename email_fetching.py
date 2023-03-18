@@ -33,11 +33,13 @@ import json
 import importlib
 import sys
 from email_parser import send_email_features_to_csv
+from loadMachineLearningModel import preprocessEmails
+from loadMachineLearningModel import loadMachineLearningModel
 from email.parser import BytesParser
 from email.policy import default
 # from SpammedALot import models
 import time
-
+import pandas as pd
 
 
 def loginToGmail():
@@ -147,9 +149,15 @@ def parseEmails():
     send_email_features_to_csv(folder)
 
 def classify():
-    # TODO: CLASSIFY THE MESSAGE AS SPAM OR HAM
     print("classification magic")
-    #return dates, senders, subjects, classifications
+    emailToClassify = preprocessEmails()
+    # loaded_model = loadMachineLearningModel()
+    # classifications = loaded_model.predict(emailToClassify)
+    # print(classifications)
+    # dates = emailToClassify["Date"]
+    # senders = emailToClassify["From"]
+    # subjects = emailToClassify["Subject"]
+    # return dates, senders, subjects, classifications
 
 #def saveToDatabase(secondCountOfEmails, dates, senders, subjects, classifications):
 def saveToDatabase(secondCountOfEmails):
@@ -157,23 +165,20 @@ def saveToDatabase(secondCountOfEmails):
     # TODO: SAVE JUST THE SUBJECT LINE FOR THE DATABASE; DATE
     print("database magic")
 
-
 tic = time.perf_counter()
 
-countOfEmails = 0
-imap = loginToGmail()
-spam = getSpamFolder()
-firstCountOfEmails = fetchAllinFolder(imap, spam, countOfEmails)
-
-# TODO: DO NOT OVERWRITE THE SPAM EMAILS - FIX THE NAMING CONVENTION
-secondCountOfEmails = fetchAllinFolder(imap, "INBOX", firstCountOfEmails)
-parseEmails()
+# countOfEmails = 0
+# imap = loginToGmail()
+# spam = getSpamFolder()
+# firstCountOfEmails = fetchAllinFolder(imap, spam, countOfEmails) #fetch from Spam folder
+# secondCountOfEmails = fetchAllinFolder(imap, "INBOX", firstCountOfEmails) #fetch from Inbox
+# parseEmails()
 
 # TODO: GRAB THE CSV
 #dates, senders, subjects, classifications = 
 classify()
 #saveToDatabase(secondCountOfEmails, dates, senders, subjects, classifications)
-saveToDatabase(secondCountOfEmails)
+# saveToDatabase(secondCountOfEmails)
                
 # print(dates)
 # print(senders)
@@ -181,11 +186,11 @@ saveToDatabase(secondCountOfEmails)
 # print(len(dates))
 
 # close the connection and logout
-imap.close()
-imap.logout()
+# imap.close()
+# imap.logout()
 
-toc = time.perf_counter()
-totalTime = toc-tic
+# toc = time.perf_counter()
+# totalTime = toc-tic
 
-print(f"Fetched all emails from Spam and Inbox folders in {totalTime:0.4f} seconds or {totalTime/60:0.4f} minutes")
-print(secondCountOfEmails)
+# print(f"Fetched all emails from Spam and Inbox folders in {totalTime:0.4f} seconds or {totalTime/60:0.4f} minutes")
+# print(secondCountOfEmails)
