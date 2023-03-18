@@ -11,6 +11,8 @@ IDE: Visual Studio Code
 # About
 Written as a standalone application, we wanted to have full control of the end-to-end user experience. Built in Django, our app allows users to enter their login credentials via templates using HTML/CSS/JS on the frontend. We were able to design the look and feel of the interface with the ability to include disclaimers on the risks of submitting private information such as passwords. Designed to prevent Cross-Site Request Forgery attacks, Django’s Cross-Site Request Forgery (csrf_token) is an extra layer security measure used to detect whether the credential submission is coming from a trusted source or a malicious attacker.
 
+With our application, we will take in all of the emails from both the Inbox and the Spam box from the user’s Gmail account. Those two folders are merged, parsed, fed to our model, and classified. Then the application returns emails a list of emails that our classifier labeled as spam to the user to show what could be considered as spam so they can decide if their spam filter in Gmail is working appropriately.
+
 <img src="visuals/UIscreenshot.png" width = "400">
 
 # Contents
@@ -39,17 +41,15 @@ spam-classifier.ipynb | our original model building process
 # Application
 Our YouGotSpam app follows this pattern:
 
-> Fetch all emails from an inbox and junk folder
+> Fetch all emails from a user's gmail inbox and junk folder
 
-> Save all as txt files
+> Save all fetched emails as txt files
 
-> Upload the emails to the database
+> Vectorize the fetched emails
 
-> Preprocess the emails
+> Feed the emails to the machine learning spam classifier model
 
-> Feed the emails to the spam-classifier
-
-> Flag emails as spam
+> Flag emails as spam and count how many emails were spam
 
 > Notify user of all spam emails
 
