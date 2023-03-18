@@ -9,19 +9,27 @@ Final Project
 IDE: Visual Studio Code 
 
 # Contents
-data (folder with spam and ham data)
 
-hyper-parameter-search-results (folder with txt files from results of hyperparameter search)
+Content | Description
+--------|------------
+SpammedALot | folder with Django project and YouGotSpam app for user interface
+data | folder with spam and ham data
+emailsToFlag | folder where emails fetched from someone's gmail account will go
+hyper-parameter-search-results | folder with txt files from results of hyperparameter search
+saved-models | folder with saved machine learning models to use for deployment
+visuals | folder with saved plots, like from Loading Vectors, and images, such as screenshots
+allHamData.csv | data taken from raw format, then preprocessed, and saved as a CSV
+allSpamData.csv | data taken from raw format, then preprocessed, and saved as a CSV
+email-parser.ipynb | our parsing functions
+email_features.csv  | features extracted from the real world data fetched from a user's gmail
+email_fetching.py | fetches emails from a user's gmail account
+email_parser.py | our parsing functions -- as a .py file
+feature-analyzer.ipynb | 
+hyperparam_search_testing.ipynb | 
+loadMachineLearningModel.py | loads the best model that we have
+project_File.ipynb | our new model building process for the final project
+spam-classifier.ipynb | our original model building process
 
-visuals (folder with saved plots, like from Loading Vectors, and images, such as screenshots)
-
-saved-models (folder with saved machine learning models to use for deployment)
-
-SpammedALot (folder with Django project and YouGotSpam app for user interface)
-
-emails.csv (our dataset from https://github.com/SmallLion/Python-Projects/blob/main/Spam-detection/spam.csv)
-
-spam-classifier.ipynb (Jupyter Notebook with the model)
 
 # Application
 Our YouGotSpam app follows this pattern:
