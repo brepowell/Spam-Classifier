@@ -8,6 +8,11 @@ Final Project
 
 IDE: Visual Studio Code 
 
+# About
+Written as a standalone application, we wanted to have full control of the end-to-end user experience. Built in Django, our app allows users to enter their login credentials via templates using HTML/CSS/JS on the frontend. We were able to design the look and feel of the interface with the ability to include disclaimers on the risks of submitting private information such as passwords. Designed to prevent Cross-Site Request Forgery attacks, Django’s Cross-Site Request Forgery (csrf_token) is an extra layer security measure used to detect whether the credential submission is coming from a trusted source or a malicious attacker.
+
+<img src="visuals/UIscreenshot.png" width = "400">
+
 # Contents
 
 Content | Description
