@@ -40,6 +40,18 @@ Our YouGotSpam app follows this pattern:
 
 > Notify user of all spam emails
 
+To run the app, you must be in the same folder as manage.py
+
+In the command line, type this:
+
+> $ python manage.py runserver 8080
+
+Open up a brower window.
+
+Type this in the URL field:
+
+> localhost:8080
+
 # Code Setup & Libraries Needed
 <details id=1>
 <summary><h2>STEPS</h2></summary>
